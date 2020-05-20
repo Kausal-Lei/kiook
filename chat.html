@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			@font-face{
+			  font-family: "Pingfang";
+			  src: url("ppp.ttf");
+			}
+			@font-face{
+			  font-family: "xi";
+			  src: url("xi.ttf");
+			}
+			@font-face{
+			  font-family: "cu";
+			  src: url("cu.ttf");
+			}
+			a {text-decoration: none;}
+			a:link {text-decoration: none;}
+			a:visited {text-decoration: none;}
+			a:hover {text-decoration: none;}
+			a:active {text-decoration: none;}
+			a:focus {text-decoration: none;}
+			html {
+				width: 1072px;
+				height: 696px;
+				overflow: hidden;
+			}
+			body {
+				width: 1072px;
+				height: 696px;
+				border-radius: 8px;
+				overflow: hidden;
+			}
+			*{
+				margin: 0 auto;
+				padding: 0;
+			}
+			#left {
+				position: absolute;
+				width: 208px;
+				height: 536px;
+				background-color: #FFFFFF;
+				z-index: 1000;
+				box-shadow: 0px 0px 4px 2px rgb(240,240,240);
+				overflow: hidden;
+				padding-top: 140px;
+				font-size: 15px;
+			}
+			#left a{
+				display: block;
+				font-family: "Pingfang";
+				height: 55px;
+				line-height: 55px;
+				position: relative;
+				color: #999999;
+				left: -3px;
+				transition: all .5s;
+				-webkit-transition: all .5s; /* Safari */
+			}
+			#left a:hover{
+				transform: translate(3px,0px);
+				-webkit-transform:translate(3px,0px);
+				background: #F7F8FC;
+				color: #436DFD;
+			}
+			.ch {
+				transform: translate(3px,0px);
+				-webkit-transform:translate(3px,0px);
+				background: #F7F8FC;
+			}
+			.ch .choose {
+				color:#436DFD;
+			}
+			.left_show {
+				float:  left;
+				height: 55px;
+				width: 3px;
+				background-color: #2F5DFE;
+				border-radius: 0px 3px 3px 0px;
+			}
+			.choose {
+				display: block;
+				float: left;
+				margin-left: 34px;
+				height: 55px;
+				line-height: 55px;
+				pointer-events:none;
+			}
+			.circle {
+				width: 12px;
+				height: 12px;
+				margin-top: 21.5px;
+				margin-left: 20px;
+				margin-right: 4px;
+				float: left;
+			}
+			.x1 {background-image: url(main1.png);background-size: 100% 100%;}
+			#left a:hover .x1 {background-image: url(main2.png);}
+			.x2 {background-image: url(create1.png);background-size: 100% 100%;}
+			#left a:hover .x2 {background-image: url(create2.png);}
+			.x3 {background-image: url(business1.png);background-size: 100% 100%;}
+			#left a:hover .x3 {background-image: url(business2.png);}
+			.x4 {background-image: url(chat1.png);background-size: 100% 100%;}
+			#left a:hover .x4 {background-image: url(chat2.png);}
+			.x5 {background-image: url(setting1.png);background-size: 100% 100%;}
+			#left a:hover .x5 {background-image: url(setting2.png);}
+			.ma {
+				position: absolute;
+				left: 10px;
+				top: 10px;
+				width: 1052px;
+				height: 676px;
+				overflow: hidden;
+				font-family: "Pingfang";
+				background: #F2F4F9;
+				border-radius: 8px;
+				box-shadow: 0px 0px 10px rgba(0,0,0,0.6);
+			}
+			.logo {
+				font-size: 28px;
+				position: absolute;
+				top: 22px;
+				left: 26px;
+			}
+			.logo span {
+				color: #2F5DFE;
+			}
+			.friend {
+				width: 240px;
+				height: 600px;
+				position: absolute;
+				left: 210px;
+				top: 50px;
+				line-height: 44px;
+				font-size: 14px;
+			}
+			.friend span {
+				margin-left: 30px;
+				font-family: "cu";
+			}
+			.chh {
+				background: #FFFFFF;
+				box-shadow: 0px 0.5px 2px 1px rgba(0,0,0,0.05);
+				border: 0.5px solid rgba(230,230,230,0.4);
+			}
+			.peo {
+				height: 54px;
+				width: 208px;
+				border-radius: 10px;
+				margin-bottom: 16px;
+			}
+			.info {
+				float: left;
+				margin-left: 20px;
+			}
+			.name {
+				margin-top: 8px;
+				font-family: "cu";
+				font-size: 16px;
+				height: 20px;
+				line-height: 20px;
+			}
+			.la {
+				font-size: 12px;
+				height: 20px;
+				line-height: 20px;
+				color: #989898;
+			}
+			.chat {
+				width: 520px;
+				height: 600px;
+				position: absolute;
+				left: 480px;
+				top: 50px;
+			}
+			.chat span{
+				display: block;
+				font-size: 14px;
+				font-family: "cu";
+				line-height: 44px;
+				margin-bottom: 10px;
+			}
+			.message {
+				max-width: 374px;
+				padding-top: 12px;
+				padding-bottom: 12px;
+				padding-left: 18px;
+				padding-right: 18px;
+				font-family: "Pingfang";
+			}
+			.bc1 {
+				float: left;
+				background: #E1E7FA;
+				margin-left: 24px;
+				border-bottom-left-radius: 14px;
+				border-bottom-right-radius: 14px;
+				border-top-right-radius: 14px;
+				border: 0.5px solid rgba(215,215,215,1);
+				box-shadow: 0px 0.5px 10px 1.5px rgba(185,191,210,0.8);
+			}
+			.bc2 {
+				background: #4C73FD;
+				float: right;
+				border-bottom-left-radius: 14px;
+				border-bottom-right-radius: 14px;
+				border-top-left-radius: 14px;
+				color: rgb(245,245,245);
+				box-shadow: 0px 1px 6px 2px rgba(46,85,223,0.6);
+			}
+			.input {
+				width: 500px;
+				height: 48px;
+				background-color: #FFFFFF;
+				border-radius: 12px;
+				box-shadow: 0px 1px 10px 2.5px rgba(205,211,230,1);
+				position: relative;
+			}
+			.fly {
+				position: absolute;
+				top: 11px;
+				right: 11px;
+			}
+			.close div {
+				padding: 10px;
+				border-radius: 16px;
+				background: #FFFFFF;
+				box-shadow: 0px 0px 8px rgba(0,0,0,.20);
+				float: left;
+				margin-top: 12px;
+				margin-right: 10px;
+				margin-left: 10px;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				cursor: pointer;
+			}
+			.close {
+				position: absolute;
+				top: 2px;
+				right: 10px;
+			}
+			.hi {
+				width: 180px;
+				position:  absolute;
+				height: 32px;
+				background: #7D9AFC;
+				line-height: 32px;
+				border-radius: 4px;
+				top: 14px;
+				right: 240px;
+				font-size: 12px;
+				color: white;
+				font-family: "xi";
+				pointer-events: none;
+			}
+			.shu {
+				position:  absolute;
+				height: 20px;
+				width: 2px;
+				background: #DDDFE4;
+				top: 20px;
+				right: 197px;
+			}
+			.friend ,.chat {
+				cursor: default;
+			}
+			.logo {
+				font-size: 28px;
+				position: absolute;
+				top: 10px;
+				left: 26px;
+			}
+			.logo2 {
+				font-size: 12px;
+				position: absolute;
+				top: 48px;
+				left: 26px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="ma">
+			<div class="hi"><img src="peo9.png" height="20px" style="float: left;margin-top: 6px;margin-left: 14px;margin-right: 10px;"/>Hi, welcome to kiook.</div>
+			<div class="shu"></div>
+			<div class="close"><div><img src="min.png" width="12px"/></div><div><img src="mid.png" width="12px"/></div><div><img src="close.png" width="12px"/></div></div>
+			<div id="left">
+				<div class="logo">
+					<span>k</span>iook
+				</div>
+				<div class="logo2">一款智能电竞赛程软件</div>
+				<a href="mainpage.html">
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x1" ></div>
+						&nbsp;&nbsp;&nbsp;首页
+					</div>
+				</a>
+				<a href="ccreate.html" >
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x2" ></div>
+						&nbsp;&nbsp;赛程创建
+					</div>
+				</a>
+				<a href="business.html">
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x3"></div>
+						&nbsp;&nbsp;招商页面
+					</div>
+				</a>
+				<a href="#" class="ch">
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x4"  style="background-image: url(chat2.png);"></div>
+						&nbsp;&nbsp;私信
+					</div>
+				</a>
+				<a href="#">
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x5"></div>
+						&nbsp;&nbsp;设置
+					</div>
+				</a>
+			</div>
+			<div class="friend">
+				<span>好友列表</span>
+				<div class="peo">
+					<img src="peo1.png" width="32px" style="margin-left: 18px;margin-top: 11px;float: left;"/>
+					<div class="info">
+						<div class="name">ALIKE</div>
+						<div class="la">Hi , we want to have...</div>
+					</div>
+				</div>
+				<div class="peo chh">
+					<img src="peo2.png" width="32px" style="margin-left: 18px;margin-top: 11px;float: left;"/>
+					<div class="info">
+						<div class="name">ALIKE</div>
+						<div class="la">Hi , we want to have...</div>
+					</div>
+				</div>
+				<div class="peo">
+					<img src="peo3.png" width="32px" style="margin-left: 18px;margin-top: 11px;float: left;"/>
+					<div class="info">
+						<div class="name">ALIKE</div>
+						<div class="la">Hi , we want to have...</div>
+					</div>
+				</div>
+				<div class="peo">
+					<img src="peo4.png" width="32px" style="margin-left: 18px;margin-top: 11px;float: left;"/>
+					<div class="info">
+						<div class="name">ALIKE</div>
+						<div class="la">Hi , we want to have...</div>
+					</div>
+				</div>
+				<div class="peo">
+					<img src="peo5.png" width="32px" style="margin-left: 18px;margin-top: 11px;float: left;"/>
+					<div class="info">
+						<div class="name">ALIKE</div>
+						<div class="la">Hi , we want to have...</div>
+					</div>
+				</div>
+				<div class="peo">
+					<img src="peo6.png" width="32px" style="margin-left: 18px;margin-top: 11px;float: left;"/>
+					<div class="info">
+						<div class="name">ALIKE</div>
+						<div class="la">Hi , we want to have...</div>
+					</div>
+				</div>
+				<div class="peo">
+					<img src="peo7.png" width="32px" style="margin-left: 18px;margin-top: 11px;float: left;"/>
+					<div class="info">
+						<div class="name">ALIKE</div>
+						<div class="la">Hi , we want to have...</div>
+					</div>
+				</div>
+				<div class="peo">
+					<img src="peo8.png" width="32px" style="margin-left: 18px;margin-top: 11px;float: left;"/>
+					<div class="info">
+						<div class="name">ALIKE</div>
+						<div class="la">Hi , we want to have...</div>
+					</div>
+				</div>
+			</div>
+			<div class="chat">
+				<span>最近对话</span>
+				<div style="height: 60px;">
+					<img src="peo2.png" width="32px" style="float: left;" />
+					<div class="message bc1">Hi, My name is Alixy.</div>
+				</div>
+				<div style="height: 80px;">
+					<img src="peo2.png" width="32px" style="float: left;" />
+					<div class="message bc1">I am a marketing staff of KFC company,and want to talk with you about the advertisement.</div>
+				</div>
+				<div style="margin-left: 56px;color: #909194;height: 50px;font-size: 14px;letter-spacing: 0.5px;">09: 00 AM</div>
+				<div style="height: 80px;">
+					<div class="message bc2">Please talk about your detailed advertisement request and the price you can offer.</div>
+				</div>
+				<div style="height: 60px;">
+					<div class="message bc2">Okay?</div>
+				</div>
+				<div style="text-align: right;color: #909194;height: 50px;font-size: 14px;letter-spacing: 0.5px;">09: 13 AM</div>
+				<div style="height: 80px;">
+					<img src="peo2.png" width="32px" style="float: left;" />
+					<div class="message bc1">We want the 1 5s advertisement in the finals. Our bid is 6.4 million RMB.</div>
+				</div>
+				<div style="margin-left: 56px;color: #909194;height: 40px;font-size: 14px;letter-spacing: 0.5px;">09: 27 AM</div>
+				<div class="input">
+					<img src="fly.png" class="fly" width="26px" />
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

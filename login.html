@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			@font-face{
+			  font-family: "Pingfang";
+			  src: url("ppp.ttf");
+			}
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html {
+				width: 1072px;
+				height: 696px;
+				overflow: hidden;
+			}
+			body {
+				width: 1072px;
+				height: 696px;
+				border-radius: 8px;
+				overflow: hidden;
+			}
+			.ma {
+				position: absolute;
+				left: 10px;
+				top: 10px;
+				width: 1036px;
+				height: 676px;
+				font-family: "Pingfang";
+				border-left: 16px solid #2F5DFE;
+				background-color: #fff;
+				overflow: hidden;
+				border-radius: 8px;
+				box-shadow: 0px 0px 10px rgba(0,0,0,0.6);
+			}
+			.logo {
+				font-size: 32px;
+				position: absolute;
+				top: 4px;
+				left:26px;
+				z-index: 100;
+				pointer-events:none;
+			}
+			.logo span {
+				color: #2F5DFE;
+			}
+			.welcome {
+				left: 90px;
+				position: absolute;
+				height: 676px;
+				pointer-events:none;
+			}
+			.info {
+				width: 332px;
+				position: absolute;
+				left: 618px;
+				top: 160px;
+			}
+			#title {
+				color: #858585;
+				font-size: 21px;
+				margin-bottom: 8px;
+				pointer-events:none;
+			}
+			#title2 {
+				color: #858585;
+				font-size: 21px;
+				margin-top: 30px;
+				pointer-events:none;
+			}
+			.in {
+				outline:0;
+				border: 0;
+				width: 332px;
+				border-bottom: 3px solid #DBDBDB;
+				height: 36px;
+				letter-spacing: 0.2px;
+				font-size: 21px;
+			}
+			/*input:focus
+			{ 
+				border-bottom: 3px solid #2F5DFE;
+			}*/
+			input::-webkit-input-placeholder {
+			    color: #DBDBDB;
+				opacity: 0.5;
+			    font-size: 18px;
+				font-weight: 400;
+				letter-spacing: 0px;
+				font-family: "Pingfang";
+			}
+			input::-moz-placeholder {
+			    color: #DBDBDB;
+			    font-size: 18px;
+				opacity: 0.5;
+				font-weight: 400;
+				letter-spacing: 0px;
+				font-family: "Pingfang";
+			}
+			input[type="password"] {
+			  letter-spacing: 2px;
+			  font-weight: 900;
+			}
+			#name.change::-webkit-input-placeholder {
+				font-size: 18px;
+				letter-spacing: 0px;
+				font-family: "Pingfang";
+			    color: #2F5DFE;
+			}
+			#password.change::-webkit-input-placeholder {
+			    font-size: 18px;
+			    letter-spacing: 0px;
+			    font-family: "Pingfang";
+			    color: #2F5DFE;
+			}
+			#rem {
+				margin-top: 30px;
+				width: 100px;
+				height: 22px;
+				font-family: "Pingfang";
+				font-size: 15px;
+				line-height: 22px;
+				color: #C5C5C6;
+				cursor: pointer;
+			}
+			#remimg {
+				margin-top: 2px;
+				float: left;
+				pointer-events:none;
+			}
+			.tmp {
+				margin-left: 8px;
+				float: left;
+				pointer-events:none;
+			}
+			.sign {
+				margin-top: 42px;
+				widows: 332px;
+				height: 40px;
+				font-family: "Pingfang";
+			}
+			#signin {
+				float: left;
+				width: 150px;
+				height: 40px;
+				line-height: 40px;
+				font-size: 20px;
+				color:  #F9F9F9;
+				text-align: center;
+				border-bottom-left-radius: 20px 20px;
+				border-bottom-right-radius: 20px 20px;
+				border-top-left-radius: 20px 20px;
+				border-top-right-radius: 20px 20px;
+				background-color: #2F5DFE;
+				box-shadow: 2px 2px 10px 5px #CED4F8;
+				cursor: pointer;
+				transition: all .5s;
+				-webkit-transition: all .5s; /* Safari */
+			}
+			#signup {
+				float: right;
+				width: 150px;
+				height: 40px;
+				line-height: 40px;
+				font-size: 20px;
+				color:  #2F5DFE;
+				text-align: center;
+				border-bottom-left-radius: 20px 20px;
+				border-bottom-right-radius: 20px 20px;
+				border-top-left-radius: 20px 20px;
+				border-top-right-radius: 20px 20px;
+				background-color: #fff;
+				box-shadow: 2px 2px 10px 5px #f0f0f0;
+				cursor: pointer;
+				transition: all .5s;
+				-webkit-transition: all .5s; /* Safari */
+			}
+			#signin:hover{
+				box-shadow: 3px 3px 18px 9px #CED4F8;
+				transform: scale(1.05);
+				-ms-transform:scale(1.05);     /* IE 9 */
+				-moz-transform:scale(1.05);     /* Firefox */
+				-webkit-transform:scale(1.05); /* Safari 和 Chrome */
+				-o-transform:scale(1.05);
+			}
+			#signup:hover{
+				box-shadow: 3px 3px 18px 9px #f0f0f0;
+				transform: scale(1.04);
+				-ms-transform:scale(1.04);     /* IE 9 */
+				-moz-transform:scale(1.04);     /* Firefox */
+				-webkit-transform:scale(1.04); /* Safari 和 Chrome */
+				-o-transform:scale(1.04);
+			}
+			.icon {
+				cursor: pointer;
+				border-radius: 20px;
+				box-shadow: 2px 2px 6px 3px #DCDCDC;
+				transition: all .5s;
+				-webkit-transition: all .5s; /* Safari */
+			}
+			.icon:hover{
+				box-shadow: 3px 3px 12px 6px #DCDCDC;
+				transform: scale(1.08);
+				-ms-transform:scale(1.08);     /* IE 9 */
+				-moz-transform:scale(1.08);     /* Firefox */
+				-webkit-transform:scale(1.08); /* Safari 和 Chrome */
+				-o-transform:scale(1.08);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="ma">
+			<div class="logo">
+				<span>k</span>iook
+			</div>
+			<img class="welcome" src="welcome.png" height="676px" />
+			<div class="info">
+				<div>
+					<div class="name">
+						<div id="title">名称</div>
+						<input class="in" id="name" placeholder="请输入您的用户名" onFocus="f1();" onBlur="b1();" />
+					</div>
+					<div class="password">
+						<div id="title2">密码</div>
+						<input class="in" id="password" placeholder="请输入6-12位密码" type="password"  onFocus="f2();" onBlur="b2();" />
+					</div>
+				</div>
+				<div id="rem">
+					<img id="remimg" src="1.png" width="18px" height="18px"/> <div class="tmp">记住密码</div>
+				</div>
+				<div class="sign">
+					<div id="signin">登录</div><div id="signup">注册</div>
+				</div>
+				<img src="or.png" width="332px" style="margin-top: 60.5px;pointer-events:none;">
+				<div style="width: 332px; margin-top: -10px;">
+					<img src="qq.png" width="40px" class="icon" style="float: left;">
+					<img src="wechat.png" width="40px" class="icon" style="margin-left: 101px;">
+					<img src="weibo.png" width="40px" class="icon" style="float: right;">
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		function f1(){
+			document.getElementById('name').style.borderBottom = "3px solid #2F5DFE";
+			document.getElementById('name').style.color="#2F5DFE";
+			document.getElementById('title').style.color="#2F5DFE";
+			document.getElementById('name').setAttribute('class', 'change in')
+		}
+		function b1(){
+			document.getElementById('name').style.borderBottom = "3px solid #DBDBDB";
+			document.getElementById('name').style.color="#000";
+			document.getElementById('title').style.color="#858585";
+			document.getElementById('name').setAttribute('class', 'in')
+		}
+		function f2(){
+			document.getElementById('password').style.borderBottom = "3px solid #2F5DFE";
+			document.getElementById('password').style.color="#2F5DFE";
+			document.getElementById('title2').style.color="#2F5DFE";
+			document.getElementById('password').setAttribute('class', 'change in')
+		}
+		function b2(){
+			document.getElementById('password').style.borderBottom = "3px solid #DBDBDB";
+			document.getElementById('password').style.color="#000";
+			document.getElementById('title2').style.color="#858585";
+			document.getElementById('password').setAttribute('class', 'in')
+		}
+		document.getElementById('rem').onclick = function(){
+		    var rem=document.getElementById('rem');
+			var img=document.getElementById('remimg');
+			var s = img.src;
+			if(s.indexOf("1.png")!=-1) {
+				img.src="2.png";
+				rem.style.color="#2F5DFE";
+			}else {
+				img.src="1.png";
+				rem.style.color="#C5C5C6";
+			}
+		}
+	</script>
+	<script>
+		document.getElementById('signin').onclick = function(){
+		    window.location.href='mainpage.html?name='+document.getElementById('name').value;
+		}
+	</script>
+</html>

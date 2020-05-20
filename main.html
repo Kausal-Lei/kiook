@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#lloading {
+				width: 1052px;
+				height: 676px;
+				z-index: 999999999;
+				background: rgb(0,0,0,0.6);
+			}
+			.anmiate {
+				width: 700px;
+				height: 200px;
+				position: fixed;
+				margin-left: 186px;
+				border-radius: 10px;
+				top: 50%;
+				margin-top: -100px;
+				background: #FFFFFF;
+			}
+			#che1 {
+				position: absolute;
+				left: 50px;
+				top: 60px;
+			}
+			img {
+				display: block;
+			}
+			#che2 {
+				position: absolute;
+				left: 120px;
+				top: 60px;
+				display: none;
+			}
+			.show {
+				position: absolute;
+				width: 460px;
+				height: 20px;
+				left: 120px;
+				top: 100px;
+				overflow: hidden;
+			}
+			#line {
+				width: 470px;
+				height: 20px;
+				position: absolute;
+				background: #1753FC;
+				left: -470px;
+			}
+		</style>
+	</head>
+	<body  id="body">
+		<div class="lloading">
+			<div class="anmiate">
+				<img src="loading.png" width="600px" style="margin-left: 50px;margin-top: 100px;" />
+				<img src="wan.png" width="70px" id="che1"/>
+				<img src="zhi.png" width="70px" id="che2"/>
+				<div class="show">
+					<div id="line">
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="jquery-3.3.1.min.js"></script>
+		<script>
+			var t=40,timer,x=0,flag=1;
+			window.onload = function() {
+				go();
+			}
+			function fir(){
+			    if(t<=0){
+			        clearTimeout(timer);
+					document.getElementById('che1').style.display="none";
+					document.getElementById('che2').style.display="block";
+					t=220;x=0;
+					sec();
+			        return;
+			    }t--;
+				x+=1.75;
+				document.getElementById('che1').style.transform="translateX("+x+"px)";
+				//document.getElementById('').style.left=lef+"px";
+			    timer = setTimeout("fir()", 15);
+			}
+			function sec(){
+			    if(t<=0){
+					thd();
+			        return;
+			    }t--;
+				x+=1.75;
+				document.getElementById('line').style.transform="translateX("+x+"px)";
+				document.getElementById('che2').style.transform="translateX("+x+"px)";
+				//document.getElementById('').style.left=lef+"px";
+			    timer = setTimeout("sec()", 15);
+			}
+			function thd(){
+			    if(flag){
+					console.log("aasd");
+					t=43;
+					fou();
+			        return;
+			    };
+			    timer = setTimeout("thd()", 15);
+			}
+			function fou(){
+			    if(t<=0){
+					finish();
+			        return;
+			    }t--;
+				x+=1.75;
+				document.getElementById('line').style.transform="translateX("+x+"px)";
+				document.getElementById('che2').style.transform="translateX("+x+"px)";
+			    timer = setTimeout("fou()", 10);
+			}
+			function go() {
+				console.log(document.getElementById('che1').offsetLeft);
+				fir();
+			}
+			function finish() {
+				;
+			}
+		</script>
+	</body>
+</html>

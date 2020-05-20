@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="qrc:/qwebchannel.js"></script>
+		<link rel="stylesheet" type="text/css" href="date.css">
+		<script type="text/javascript" src="date.js"></script>
+		<script type="text/javascript" src="iscroll_date.js"></script>
+		<link rel="stylesheet" href="public.css">
+		<link rel="stylesheet" href="ion.rangeSlider.css">
+		<link rel="stylesheet" href="index.css">
+		<script src="sweet-alert.js"></script>
+		<link rel="stylesheet" href="sweet-alert.css">
+
+		<style>
+			@font-face{
+			  font-family: "Pingfang";
+			  src: url("ppp.ttf");
+			}
+			@font-face{
+			  font-family: "xi";
+			  src: url("xi.ttf");
+			}
+			@font-face{
+			  font-family: "cu";
+			  src: url("cu.ttf");
+			}
+			a {text-decoration: none;}
+			a:link {text-decoration: none;}
+			a:visited {text-decoration: none;}
+			a:hover {text-decoration: none;}
+			a:active {text-decoration: none;}
+			a:focus {text-decoration: none;}
+			* {
+				margin: 0 auto;
+				padding: 0;
+			}
+			html {
+				width: 1072px;
+				height: 696px;
+				overflow: hidden;
+			}
+			body {
+				width: 1072px;
+				height: 696px;
+				border-radius: 8px;
+				overflow: hidden;
+			}
+			#left {
+				position: absolute;
+				width: 208px;
+				height: 536px;
+				background-color: #FFFFFF;
+				z-index: 1000;
+				box-shadow: 0px 0px 4px 2px rgb(240,240,240);
+				overflow: hidden;
+				padding-top: 140px;
+				font-size: 15px;
+			}
+			#left a{
+				display: block;
+				font-family: "Pingfang";
+				height: 55px;
+				line-height: 55px;
+				position: relative;
+				color: #999999;
+				left: -3px;
+				transition: all .5s;
+				-webkit-transition: all .5s; /* Safari */
+			}
+			#left a:hover{
+				transform: translate(3px,0px);
+				-webkit-transform:translate(3px,0px);
+				background: #F7F8FC;
+				color: #436DFD;
+			}
+			.ch {
+				transform: translate(3px,0px);
+				-webkit-transform:translate(3px,0px);
+				background: #F7F8FC;
+			}
+			.ch .choose {
+				color:#436DFD;
+			}
+			.left_show {
+				float:  left;
+				height: 55px;
+				width: 3px;
+				background-color: #2F5DFE;
+				border-radius: 0px 3px 3px 0px;
+			}
+			.choose {
+				float: left;
+				margin-left: 34px;
+				height: 55px;
+				line-height: 55px;
+				pointer-events:none;
+			}
+			.circle {
+				width: 12px;
+				height: 12px;
+				margin-top: 21.5px;
+				margin-left: 20px;
+				margin-right: 4px;
+				float: left;
+			}
+			.x1 {background-image: url(main1.png);background-size: 100% 100%;}
+			#left a:hover .x1 {background-image: url(main2.png);}
+			.x2 {background-image: url(create1.png);background-size: 100% 100%;}
+			#left a:hover .x2 {background-image: url(create2.png);}
+			.x3 {background-image: url(business1.png);background-size: 100% 100%;}
+			#left a:hover .x3 {background-image: url(business2.png);}
+			.x4 {background-image: url(chat1.png);background-size: 100% 100%;}
+			#left a:hover .x4 {background-image: url(chat2.png);}
+			.x5 {background-image: url(setting1.png);background-size: 100% 100%;}
+			#left a:hover .x5 {background-image: url(setting2.png);}
+			.ma {
+				position: absolute;
+				left: 10px;
+				top: 10px;
+				width: 1052px;
+				height: 676px;
+				overflow: hidden;
+				font-family: "Pingfang";
+				background: #F2F4F9;
+				border-radius: 8px;
+				box-shadow: 0px 0px 10px rgba(0,0,0,0.6);
+			}
+			.logo {
+				font-size: 28px;
+				position: absolute;
+				top: 22px;
+				left: 26px;
+			}
+			.logo span {
+				color: #2F5DFE;
+			}
+			.main {
+				width: 780px;
+				margin-top: 70px;
+				margin-left: 230px;
+			}
+			.container {
+				width: 358px;
+				float: left;
+				margin-bottom: 20px;
+				margin-left: 30px;
+				height: 140px;
+				border-radius: 12px;
+				background: rgb(252,253,254);
+				box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.1);
+				border: 0.5px solid rgba(230,230,230,0.5);
+				transition: all .6s;
+				-webkit-transition: all .6s;
+				position: relative;
+			}
+			.container:hover {
+				box-shadow: 0px 2px 12px rgba(0,0,0,0.3);
+				transform: scale(1.005);
+				-ms-transform:scale(1.005);    
+				-moz-transform:scale(1.005); 
+				-webkit-transform:scale(1.005);
+				-o-transform:scale(1.005);
+			}
+			.name {
+				color: #363737;font-family: "Pingfang";
+				font-family: "cu";
+				color: rgb(94,94,94);
+				margin-top: 26px;
+				margin-bottom: 4px;
+				width: 300px;
+				margin-left: 29px;
+				font-size: 18px;
+				pointer-events: none;
+			}
+			.input {
+				font-family: "Pingfang";
+				color: rgb(162,162,162);
+				letter-spacing: 0.2px;
+				font-size: 18px;
+				margin-top: 20px;
+				outline: 0;
+				margin-left: 29px;
+				width: 280px;
+				padding-left: 10px;
+				padding-right: 10px;
+				height: 48px;
+				border-radius: 6px;
+				border:0.5px solid rgb(225,225,225);
+				box-shadow: 0px 0.5px 2px 1px rgba(0,0,0,0.1);
+				z-index: 9999999999;
+			}
+			#input_name {
+				;
+			}
+			.input::-webkit-input-placeholder {
+				text-align: left;
+				font-family: "Pingfang";
+			    color: rgb(162,162,162);
+			}
+			#file {
+				position: relative;
+				font-size: 18px;
+				color: rgb(162,162,162);
+				margin-top: 20px;
+				margin-left: 29px;
+				display: block;
+				line-height: 48px;
+				text-align: left;
+				height: 48px;
+			    float: left;
+			    background: #FFF;
+				width: 280px;
+				padding-left: 10px;
+				padding-right: 10px;
+			    border-radius: 6px;
+			    border:0.5px solid rgb(225,225,225);
+			    box-shadow: 0px 0.5px 2px 1px rgba(0,0,0,0.1);
+			    overflow: hidden;
+			    text-decoration: none;
+			    text-indent: 0;
+			}
+			#file input {
+				height: 48px;
+			    position: absolute;
+			    font-size: 20px;
+			    right: 0;
+			    top: 0;
+			    opacity: 0;
+			}
+			#file:hover {
+			    box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.2);
+			    text-decoration: none;
+			}
+			.moveBox {
+				font-family: "Pingfang";
+				z-index: 100;
+				position: absolute;
+				margin-top: 0px;
+				top: 354px;
+				left: 680px;
+				width: 270px;
+				padding-left: 15px;
+				padding-right: 15px;
+				height: 150px;
+				box-shadow: 0 0 12px rgba(0,0,0,.175);
+				background: #FFFFFF;
+				border-radius: 6px;
+				overflow: hidden;
+				display: none;
+			}
+			.clearfix:after {
+				content: "";
+				display: block;
+				height: 0;
+				width: 100%;
+				clear: both;
+				visibility: hidden
+			}
+			.bxsh {
+				margin-top: 10px;
+				width: 270px;
+				text-align: center;
+				display: block;
+				font-size: 20px;
+			}
+			.page {
+				cursor: default;
+			}
+			#dateconfirm {
+				cursor: pointer;
+			}
+			#datecancle {
+				cursor: pointer;
+			}
+			.a,.b {
+				cursor: pointer;
+			}
+			#submit {
+				cursor: pointer;
+			}
+			#sure {
+				font-family: "Pingfang";
+				margin-left: -16px;
+				width: 149px;
+				height: 50px;
+				border:1px solid #e6e6e6 ;
+				float:left;
+				line-height: 50px;
+				text-align: center;
+				background: #F8F8F8;
+				color: #363737;
+				cursor: pointer;
+			}
+			#cal {
+				width: 149px;
+				height: 50px;
+				float:left;
+				border:1px solid #e6e6e6 ;
+				line-height: 50px;
+				text-align: center;
+				background: #F8F8F8;
+				color: #363737;
+				cursor: pointer;
+			}
+			.chh {
+				width: 320px;
+				margin-left: 29px;
+			}
+			.chhh {
+				width: 320px;
+				margin-left: 47px;
+			}
+			.a {
+				margin-top: 4px;
+				width: 64px;
+				height: 32px;
+				line-height: 32px;
+				text-align: center;
+				margin-right: 14.5px;
+				float:left;
+				color: rgb(162,162,162);
+				border-radius: 4px;
+			}
+			.b {
+				margin-top: 4px;
+				width: 64px;
+				height: 32px;
+				line-height: 32px;
+				text-align: center;
+				margin-right: 14.5px;
+				float:left;
+				color: rgb(162,162,162);
+				border-radius: 4px;
+			}
+			/*.b {
+				margin-top: 4px;
+				width: 64px;
+				height: 32px;
+				line-height: 32px;
+				text-align: center;
+				margin-right: 36px;
+				float:left;
+				color: rgb(162,162,162);
+				border-radius: 4px;
+			}*/
+			#submit {
+				position: absolute;
+				width: 210px;
+				font-size: 26px;
+				color: white;
+				margin:  0 auto;
+				height: 56px;
+				line-height: 56px;
+				text-align: center;
+				border-radius: 28px;
+				background: #6E8DFC;
+				margin-top: 500px;
+				margin-left: 285px;
+				box-shadow: 0px 0px 0px rgb(90,121,232);
+				transition: all .3s;
+				-webkit-transition: all .3s; /* Safari */
+			}
+			#submit:hover {
+				box-shadow: 0px 0px 6px rgba(50,81,152,.5);
+			}
+			#lloading {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 1052px;
+				height: 676px;
+				z-index: 999999999;
+				border-radius: 8px;
+				background: rgba(0,0,0,0.4);
+				display: none;
+			}
+			#slogan {
+				margin-left: 145px;
+				margin-top: 38px;
+				line-height: 20px;
+				font-size: 26px;
+				height: 30px;
+			}
+			.anmiate {
+				width: 700px;
+				height: 200px;
+				position: fixed;
+				margin-left: 186px;
+				border-radius: 10px;
+				top: 50%;
+				margin-top: -100px;
+				background: #FFFFFF;
+			}
+			#che1 {
+				position: absolute;
+				left: 50px;
+				top: 94px;
+			}
+			img {
+				display: block;
+			}
+			#che2 {
+				position: absolute;
+				left: 120px;
+				top: 94px;
+				display: none;
+			}
+			.show {
+				position: absolute;
+				width: 460px;
+				height: 20px;
+				left: 120px;
+				top: 136px;
+				overflow: hidden;
+			}
+			#line {
+				width: 470px;
+				height: 20px;
+				position: absolute;
+				background: #1753FC;
+				left: -470px;
+			}
+			#main2 {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 780px;
+				height: 600px;
+				margin-top: 65px;
+				margin-left: 230px;
+				z-index: 999999999;
+				font-size: 14px;
+				color: rgb(0,0,0);
+				display: none;
+				cursor: default;
+			}
+			#xx {
+				width: 750px;
+			}
+			#show_table {
+				width: 750px;
+				margin-top: 14px;
+				overflow: hidden;
+				border-radius: 10px;
+				background: #FFFFFF;
+				border: 1px solid rgba(220,220,220,0.8);
+			}
+			table {
+				border-collapse: collapse;
+				font-size: 16px;
+				border: 0;
+			}
+			tr {
+				height: 46px;
+				line-height: 46px;
+				border-top: 2px solid #E1E7FF;
+			}
+			th {
+				background-color: #E1E7FF;
+			}
+			th:nth-child(1){
+				width: 150px;
+			}
+			th:nth-child(2){
+				width: 160px;
+			}
+			th:nth-child(3){
+				width: 110px;
+			}
+			th:nth-child(4){
+				width: 100px;
+			}
+			th:nth-child(5){
+				width: 80px;
+			}
+			th:nth-child(6){
+				width: 150px;
+			}
+			td {
+				text-align: center;
+			}
+			#page {
+				position: absolute;
+				right: 0;
+				top: 526px;
+				margin-right: 16px;
+			}
+			.close div {
+				padding: 10px;
+				border-radius: 16px;
+				background: #FFFFFF;
+				box-shadow: 0px 0px 8px rgba(0,0,0,.20);
+				float: left;
+				margin-top: 12px;
+				margin-right: 10px;
+				margin-left: 10px;
+				cursor: pointer;
+			}
+			.close {
+				position: absolute;
+				top: 2px;
+				right: 10px;
+			}
+			.hi {
+				width: 180px;
+				position:  absolute;
+				height: 32px;
+				background: #7D9AFC;
+				line-height: 32px;
+				border-radius: 4px;
+				top: 14px;
+				right: 240px;
+				font-size: 12px;
+				color: white;
+				font-family: "xi";
+				pointer-events: none;
+			}
+			.shu {
+				position:  absolute;
+				height: 20px;
+				width: 2px;
+				background: #DDDFE4;
+				top: 20px;
+				right: 197px;
+			}
+			.confirm,.sweet-alert {
+				font-family: "cu";
+			}
+			#xxx {
+				font-size: 13px;
+				width: 130px;
+				padding: 6px;
+				position: absolute;
+				text-align: center;	
+				right: 6px;
+				top: 80px;
+				background: rgba(0,0,0,0.4);
+				border-radius: 2px;
+				color: white;
+				z-index: 99999999999;
+				display: none;
+			}
+			#asdasd {
+				cursor: pointer;
+				transition: all .6s;
+				-webkit-transition: all .6s;
+			}
+			#asdasd:hover {
+				transform: scale(1.03);
+				
+			}
+			.logo {
+				font-size: 28px;
+				position: absolute;
+				top: 10px;
+				left: 26px;
+			}
+			.logo2 {
+				font-size: 12px;
+				position: absolute;
+				top: 48px;
+				left: 26px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="ma">
+			<div class="hi"><img src="peo9.png" height="20px" style="float: left;margin-top: 6px;margin-left: 14px;margin-right: 10px;"/>Hi, welcome to kiook.</div>
+			<div class="shu"></div>
+			<div class="close"><div><img src="min.png" width="12px"/></div><div><img src="mid.png" width="12px"/></div><div><img src="close.png" width="12px"/></div></div>
+			<div id="left">
+				<div class="logo">
+					<span>k</span>iook
+				</div>
+				<div class="logo2">一款智能电竞赛程软件</div>
+				<a href="mainpage.html">
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x1" ></div>
+						&nbsp;&nbsp;&nbsp;首页
+					</div>
+				</a>
+				<a href="#"  class="ch">
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x2" style="background-image: url(create2.png);"></div>
+						&nbsp;&nbsp;赛程创建
+					</div>
+				</a>
+				<a href="business.html">
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x3"></div>
+						&nbsp;&nbsp;招商页面
+					</div>
+				</a>
+				<a href="chat.html">
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x4"></div>
+						&nbsp;&nbsp;私信
+					</div>
+				</a>
+				<a href="#">
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x5"></div>
+						&nbsp;&nbsp;设置
+					</div>
+				</a>
+			</div>
+			<div class="main">
+				<div class="container">
+					<div style="position: absolute;right: 8px;top: 8px;">
+						<div style="float: right;height: 10px;width: 10px;border-radius: 12px;background: #F2D97D;margin-left: 5px;"></div>
+						<div style="float: right;height: 10px;width: 10px;border-radius: 12px;background: #DA6E6E;margin-left: 5px;"></div>
+						<div style="float: right;height: 10px;width: 10px;border-radius: 12px;background: #6685D8;margin-left: 5px;"></div>
+					</div>
+					<div class="name">
+						请输入比赛名称
+					</div>
+					<input id="input_name" class="input" placeholder="请在这里输入比赛名称" />
+				</div>
+				<div class="container">
+					<div style="position: absolute;right: 8px;top: 8px;">
+						<div style="float: right;height: 10px;width: 10px;border-radius: 12px;background: #F2D97D;margin-left: 5px;"></div>
+						<div style="float: right;height: 10px;width: 10px;border-radius: 12px;background: #DA6E6E;margin-left: 5px;"></div>
+						<div style="float: right;height: 10px;width: 10px;border-radius: 12px;background: #6685D8;margin-left: 5px;"></div>
+					</div>
+					<div class="name">
+						请上传参赛队伍信息
+					</div>
+					<a href="#" id="file">点我上传参赛队伍文件
+						<input type='file' name='' id='up' onchange='getvl(this)' style="cursor: pointer;">
+					</a>
+				</div>
+				<div class="container">
+					<div style="position: absolute;right: 8px;top: 8px;">
+						<div style="float: right;height: 10px;width: 10px;border-radius: 12px;background: #F2D97D;margin-left: 5px;"></div>
+						<div style="float: right;height: 10px;width: 10px;border-radius: 12px;background: #DA6E6E;margin-left: 5px;"></div>
+						<div style="float: right;height: 10px;width: 10px;border-radius: 12px;background: #6685D8;margin-left: 5px;"></div>
+					</div>
+					<div class="name">
+						请选择首场比赛开始时间
+					</div>
+					<input id="input_time" class="input" placeholder="点我选择首场比赛开始时间" readonly="readonly"  style="cursor: pointer;"/>
+				</div>
+				<div class="container">
+					<div style="position: absolute;right: 8px;top: 8px;">
+						<div style="float: right;height: 10px;width: 10px;border-radius: 12px;background: #F2D97D;margin-left: 5px;"></div>
+						<div style="float: right;height: 10px;width: 10px;border-radius: 12px;background: #DA6E6E;margin-left: 5px;"></div>
+						<div style="float: right;height: 10px;width: 10px;border-radius: 12px;background: #6685D8;margin-left: 5px;"></div>
+					</div>
+					<div class="name">
+						请选择分组数
+					</div>
+					<input id="input_group" class="input" placeholder="点我选择分组数" onclick="chos()" readonly="readonly" style="cursor: pointer;"/>
+				</div>
+				<div class="container">
+					<div style="position: absolute;right: 8px;top: 8px;">
+						<div style="float: right;height: 10px;width: 10px;border-radius: 12px;background: #F2D97D;margin-left: 5px;"></div>
+						<div style="float: right;height: 10px;width: 10px;border-radius: 12px;background: #DA6E6E;margin-left: 5px;"></div>
+						<div style="float: right;height: 10px;width: 10px;border-radius: 12px;background: #6685D8;margin-left: 5px;"></div>
+					</div>
+					<div class="name">
+						请选择每天比赛场次数
+					</div>
+					<div class="chh">
+						<div class="a">1</div>
+						<div class="a">2</div>
+						<div class="a">3</div>
+						<div class="a">4</div>
+						<div class="a">5</div>
+						<div class="a">6</div>
+						<div class="a">7</div>
+						<div class="a">8</div>
+					</div>
+				</div>
+				<div class="container">
+					<div style="position: absolute;right: 8px;top: 8px;">
+						<div style="float: right;height: 10px;width: 10px;border-radius: 12px;background: #F2D97D;margin-left: 5px;"></div>
+						<div style="float: right;height: 10px;width: 10px;border-radius: 12px;background: #DA6E6E;margin-left: 5px;"></div>
+						<div style="float: right;height: 10px;width: 10px;border-radius: 12px;background: #6685D8;margin-left: 5px;"></div>
+					</div>
+					<div class="name">
+						请选择每场比赛时长
+					</div>
+					<div class="chh">
+						<div class="b">0.5h</div>
+						<div class="b">1.0h</div>
+						<div class="b">1.5h</div>
+						<div class="b">2.0h</div>
+						<div class="b">2.5h</div>
+						<div class="b">3.0h</div>
+						<div class="b">4.0h</div>
+						<div class="b">5.0h</div>
+					</div>
+				</div>
+				<div style="width: 100%;">
+					<div id="submit" onclick="gao()">确认</div>
+				</div>
+			</div>
+			<div id="main2">
+				<div id="xx"></div>
+				<div id="show_table">
+					<table  id="hah">
+					</table>
+				</div>
+				<div id="page">
+				</div>
+			</div>
+			<div class="moveBox">
+				<div class="clearfix">
+					<p data-leftNum="" data-rightNum="" class="bxsh">1组</p>
+				</div>
+				<div class="moveContent">
+					<input type="text" value="1111" class="range_1" />
+					<div class="moveScale">
+						<p>1</p>
+						<p>12</p>
+					</div>
+				</div>
+				<div style="width: 300px;height: 52px;margin-top: 13px;" >
+					<div id="sure" onclick="sure()">确定</div>
+					<div id="cal" onclick="cal()">取消</div>
+				</div>
+			</div>
+			<div id="xxx">粉丝数*该时段观看率</div>
+			<div id="datePlugin"></div>	
+			<div id="lloading">
+				<div class="anmiate">
+				<div id="slogan">正在为您智能编排最优赛事安排中...</div>
+					<img src="loading.png" width="600px" style="margin-left: 50px;margin-top: 66px;" />
+					<img src="wan.png" width="70px" id="che1"/>
+					<img src="zhi.png" width="70px" id="che2"/>
+					<div class="show">
+						<div id="line">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<script>
+			var A="1",B="0.5h";var name="A",day=5,group=4,time=15;
+			var t=40,timer,x=0,flag=0;
+			var month="12",wday="04";
+			var matching="1243213,7961476(h,g,71155)(a,d,16394)(f,e,1879)(o,p,7404)(i,j,51890)(b,a,3083)(n,m,427610)(f,h,69693)(l,k,540291)(d,c,209361)(j,l,441584)(o,n,343200)(i,k,297641)(m,p,442280)(g,e,19680)(a,c,186083)(l,i,513674)(p,n,358150)(k,j,273490)(o,m,427295)(d,b,18573)(g,f,11294)(e,h,9444)(b,c,62713)(m,n,328765)(d,a,16394)(k,l,353818)(p,o,7404)(j,i,51890)(e,f,2552)(g,h,71155)(m,o,282681)(a,b,2924)(c,d,76024)(l,j,290520)(n,p,229426)(k,i,185532)(h,f,43474)(e,g,11673)(c,a,60375)(b,d,18573)(n,o,225927)(j,k,183608)(p,m,286642)(h,e,8771)(f,g,17465)(i,l,339285)(c,b,62713)";
+			window.onload= function() {
+				if (typeof qt != 'undefined') new QWebChannel(qt.webChannelTransport, function(channel) {
+				    bridge  = channel.objects.bridge;
+								  //document.getElementById('body').innerHTML="22345678";
+				} );
+				//init();
+				//document.getElementById('main2').style.display="initial";
+			}
+			var kkk=[0,31,29,31,30,31,30,31,31,30,31,30,31];
+			var info=new Array();var tot=0;var tit="";
+			var tab=new Array();
+			function isInteger(obj) {
+			 return parseInt(obj, 10) === obj;
+			}
+			function g(x) {
+				x=parseInt(x);
+				if(x<10) return "0"+x;
+				return x;
+			}
+			function init() {
+				A=parseInt(A);
+				var a=matching.split('(');
+				var bad=parseInt(a[0].split(',')[0]);
+				var good=parseInt(a[0].split(',')[1]);
+				console.log(bad+"  "+good);
+				for(var i=1;i<a.length;i++) {
+					var b=a[i].split(',');
+					for(var j=0;j<b.length;j++) {
+						if(j!=b.length-1) info[tot++]=b[j];
+						else info[tot++]=b[j].split(')')[0];
+					}
+				}
+				document.getElementById('xx').innerHTML="Kiook编排的赛程预计总观看人数：<span style='color:red;'>"+good+"</span>人，相较于普通编排提高了：<span style='color:red;'>"+parseInt((good-bad)/bad*100)+"%</span>的收视率";
+				tit="<tr>"+
+						"<th>比赛名称</th>"+
+						"<th>蓝色方&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;红色方</th>"+
+						"<th>日期</th>"+
+						"<th>时间</th>"+
+						"<th>场次</th>"+
+						"<th id='asdasd'>预计观众*</th>"+
+					"</tr>";
+				console.log(info.length);
+				var fg=0,already=0;
+				var Time=time;
+				for(var i=0;i<info.length;i++) {
+					var tmp="";
+					var tim;
+					if(isInteger(Time)) tim=Time+":00";
+					else tim=parseInt(Time)+":30";
+					if(i%27==0) fg=0;
+					if(!fg) tmp="<tr>"+
+									"<td>"+name+"</td>"+
+									"<td>"+info[i]+"&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;"+info[i+1]+"</td>"+
+									"<td>"+g(month)+"/"+g(wday)+"</td>"+
+									"<td>"+tim+"</td>"+
+									"<td>"+parseInt(i/3+1)+"</td>"+
+									"<td>"+info[i+2]+"</td>"+
+								"</tr>";
+					else tmp="<tr style='background:#F8FAFF;'>"+
+									"<td>"+name+"</td>"+
+									"<td>"+info[i]+"&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;"+info[i+1]+"</td>"+
+									"<td>"+g(month)+"/"+g(wday)+"</td>"+
+									"<td>"+tim+"</td>"+
+									"<td>"+parseInt(i/3+1)+"</td>"+
+									"<td>"+info[i+2]+"</td>"+
+								"</tr>";
+					tab[i/3]=tmp;
+					Time+=parseFloat(B);
+					already++;
+					if(already==A) {
+						already=0;
+						Time=time;
+						wday++;
+					}
+					if(kkk[month]<wday) {
+						wday-=kkk[month];
+						month++;
+					}
+					if(month>12) month-=12;
+					i+=2;fg^=1;
+				}
+				var sum=parseInt(Math.ceil(tab.length/9));
+				var xyz="";
+				if(sum<=17) {
+					for(var i=0;i<sum;i++) {
+						if(i==sum-1) xyz+='<div style="cursor:pointer;border-radius:4px;float: right;width:32px;height:32px;line-height:32px;text-align:center;margin-right:12px;font-size:16px;background:#9DB2FC;color:#FFF;">'+(sum-i)+'</div>';
+						else xyz+='<div style="cursor:pointer;border-radius:4px;float: right;width:32px;height:32px;line-height:32px;text-align:center;margin-right:12px;font-size:16px;background:#FFF;color:#000;">'+(sum-i)+'</div>';
+					}
+				}else {
+					for(var i=0;i<sum;i++) {
+						if(i<17) {
+							if(i==0) xyz+='<div style="cursor:pointer;border-radius:4px;float: left;width:32px;height:32px;line-height:32px;text-align:center;margin-left:15px;margin-right:12px;font-size:16px;background:#9DB2FC;color:#FFF;">'+(i+1)+'</div>';
+							else xyz+='<div style="cursor:pointer;border-radius:4px;float: left;width:32px;height:32px;line-height:32px;text-align:center;margin-right:12px;font-size:16px;background:#FFF;color:#000;">'+(i+1)+'</div>';
+						}else {
+							if(i==17) xyz+='<div style="cursor:pointer;border-radius:4px;float: left;width:32px;height:32px;line-height:32px;text-align:center;margin-left:15px;margin-top:10px;margin-right:12px;font-size:16px;background:#FFF;color:#000;">'+(i+1)+'</div>';
+							else xyz+='<div style="cursor:pointer;border-radius:4px;float: left;width:32px;height:32px;line-height:32px;text-align:center;margin-top:10px;margin-right:12px;font-size:16px;background:#FFF;color:#000;">'+(i+1)+'</div>';
+						}
+					}
+				}
+				document.getElementById('page').innerHTML=xyz;
+				$('#page div').click(function(){
+					var v=parseInt(this.innerHTML);
+					var ans="";
+					for(var i=(v-1)*9;i<parseInt(Math.min(v*9,tab.length));i++) ans+=tab[i];
+					document.getElementById('hah').innerHTML=tit+ans;
+					$('#page div').css("color","#000");
+					this.style.color="#fff";
+					$('#page div').css("background","#FFF");
+					this.style.background="#9DB2FC";
+				});
+				var ans="";
+				for(var i=0;i<9;i++) ans+=tab[i];
+				document.getElementById('hah').innerHTML=tit+ans;
+				init2();
+			}
+			function init2() {
+				$("#asdasd").hover(function(){
+					$("#xxx").fadeIn(400);
+				},function(){
+				    $("#xxx").fadeOut(400);
+				});
+			}
+			function createtable() {
+				;
+			}
+			function showAlert(a) {
+			    matching=a;
+				flag=1;
+				console.log(a);
+			}
+			$(function(){
+			    //初始化日期插件	
+			    $('#input_time').date();	
+			});
+			function sure() {
+				var x=$(".bxsh")[0].innerHTML;
+				console.log(x);
+				$("#input_group").attr("value",x);
+				$(".moveBox").fadeOut(300);
+			}
+			function cal() {
+				$(".moveBox").fadeOut(300);
+			}
+			function chos() {
+				$(".moveBox").fadeIn(300);
+			}
+			var a=document.getElementsByClassName('a');
+			a[0].style.background="#819DFE";
+			a[0].style.color="#FFF";
+			a[0].style.boxShadow="0px 0px 8px rgb(109,137,234)";
+			for(var i=0;i<a.length;i++) {
+				a[i].addEventListener("click",function(e){
+					var a=document.getElementsByClassName('a');
+					for(var i=0;i<a.length;i++) a[i].style.background="rgba(0,0,0,0)",a[i].style.color="rgb(162,162,162)",a[i].style.boxShadow="0px 0px 0px rgba(109,137,234,0)";
+					this.style.background="#819DFE";
+					this.style.color="#FFF";
+					this.style.boxShadow="0px 0px 8px rgb(109,137,234)";
+					A=this.innerText;
+				});
+			}
+			var b=document.getElementsByClassName('b');
+			b[0].style.background="#819DFE";
+			b[0].style.color="#FFF";
+			b[0].style.boxShadow="0px 0px 8px rgb(109,137,234)";
+			for(var i=0;i<b.length;i++) {
+				b[i].addEventListener("click",function(e){
+					var b=document.getElementsByClassName('b');
+					for(var i=0;i<b.length;i++) b[i].style.background="rgba(0,0,0,0)",b[i].style.color="rgb(162,162,162)",b[i].style.boxShadow="0px 0px 0px rgba(109,137,234,0)";
+					this.style.background="#819DFE";
+					this.style.color="#FFF";
+					this.style.boxShadow="0px 0px 8px rgb(109,137,234)";
+					B=this.innerText;
+				});
+			}
+			var dir;
+			var s="zabc";
+			function getvl(obj) {
+				var reader = new FileReader();//这是核心,读取操作就是由它完成.
+				reader.readAsText(document.getElementById('up').files[0]);//读取文件的内容,也可以读取文件的URL
+				reader.onload = function () {
+				    //当读取完成后回调这个函数,然后此时文件的内容存储到了result中,直接操作即可
+				    s=this.result;
+				}
+			    dir=obj.value;
+				console.log(dir);
+				document.getElementById('file').innerHTML=dir.split("\\")[2] +"<input type='file' name='' id='up' onchange='getvl(this)'>";
+			}
+			function dat(x) {
+				var y, m, d;
+				month=parseInt(x.substr(5,2));
+				wday=parseInt(x.substr(8,2));
+				y=parseInt(x.substr(0,4));
+				m=parseInt(x.substr(5,2));
+				d=parseInt(x.substr(8,2));
+			    if(m==1||m==2){//一二月换算
+			        m+=12;
+			        y--;
+			    }
+			    var week = (d + 2*m +parseInt(3*(m+1)/5) + y + parseInt(y/4) - parseInt(y/100) + parseInt(y/400) + 1)%7;
+			    return week;//其中1~7表示周一到周日
+			}
+			function tishi(s) {
+				swal(s);
+			}
+			function gao() {
+				name=document.getElementById('input_name').value;
+				if(name.length<1) {
+					tishi("请输入比赛名称!");
+					return ;
+				}
+				if(s=="zabc") {
+					tishi("请上传参赛队伍信息文件!");
+					return ;
+				}
+				if(document.getElementById('input_time').value.length<1) {
+					tishi("请选择首场比赛开始时间!");
+					return ;
+				}
+				if(document.getElementById('input_group').value.length<1) {
+					tishi("请选择分组数!");
+					return ;
+				}
+				day=dat(document.getElementById('input_time').value);
+				group=document.getElementById('input_group').value.split("组")[0];
+				time=parseInt(document.getElementById('input_time').value.substr(11,2));
+				if(day==0)day=7;
+				//console.log(day+" "+time);
+				var pre=-1,n=0;
+				for(var i=0;i<s.length;i++) {
+					if(s.charAt(i).charCodeAt()==13) continue;
+					if(s.charAt(i)==('\n')) {
+						pre=-1;
+					}else if(s.charAt(i)!=('\n')&&pre==-1) {
+						pre=1;
+						n++;
+					}
+				}
+				if(n%parseInt(group)!=0) {
+					tishi("队伍数需是小组数的倍数!");
+					return ;
+				}
+				var k=parseFloat(B);
+				console.log(k+" "+parseInt(k*2));
+				if (typeof bridge !== 'undefined') {
+					bridge.get(parseInt(group),n,time*2,parseInt(A),parseInt(k*2),day,s) ;
+					go(n*(n/group-1)/12);
+				}
+			}
+			function fir(fkk){
+			    if(t<=0){
+			        clearTimeout(timer);
+					document.getElementById('che1').style.display="none";
+					document.getElementById('che2').style.display="block";
+					t=220;x=0;
+					sec(fkk);
+			        return;
+			    }t--;
+				x+=1.75;
+				document.getElementById('che1').style.transform="translateX("+x+"px)";
+				//document.getElementById('').style.left=lef+"px";
+			    timer = setTimeout("fir("+fkk+")", fkk);
+			}
+			function sec(fkk){
+			    if(t<=0){
+					thd(fkk);
+			        return;
+			    }t--;
+				x+=1.75;
+				document.getElementById('line').style.transform="translateX("+x+"px)";
+				document.getElementById('che2').style.transform="translateX("+x+"px)";
+				//document.getElementById('').style.left=lef+"px";
+			    timer = setTimeout("sec("+fkk+")", fkk);
+			}
+			function thd(fkk){
+			    if(flag){
+					console.log("aasd");
+					t=43;
+					fou(fkk/1.5);
+			        return;
+			    };
+			    timer = setTimeout("thd("+fkk+")", fkk);
+			}
+			function fou(fkk){
+			    if(t<=0){
+					finish();
+			        return;
+			    }t--;
+				x+=1.75;
+				document.getElementById('line').style.transform="translateX("+x+"px)";
+				document.getElementById('che2').style.transform="translateX("+x+"px)";
+			    timer = setTimeout("fou("+fkk+")", fkk);
+			}
+			var cnm,gogogo=1,gogo=0;
+			function go(fkk) {
+				document.getElementById('lloading').style.display="block";
+				fir(fkk);
+				refresh();
+			}
+			function refresh(){
+			    if(gogo==-1){
+			        return;
+			    };
+				if(gogogo%3==0) document.getElementById('slogan').innerHTML="正在为您智能编排最优赛事安排中...";
+				else if(gogogo%3==1) document.getElementById('slogan').innerHTML="正在为您智能编排最优赛事安排中.&nbsp;&nbsp;";
+				else  document.getElementById('slogan').innerHTML="正在为您智能编排最优赛事安排中..&nbsp;";
+				gogogo++;
+			    timer = setTimeout("refresh()",500);
+			}
+			function finish() {
+				$('#lloading').fadeOut(300);
+				$('.main').fadeOut(0);
+				init();
+				gogo=-1;
+				$('#main2').fadeIn(100);
+			}
+		</script>
+		<script src="ion.rangeSlider.js"></script>
+		<script src="index.js"></script>
+		
+	</body>
+</html>

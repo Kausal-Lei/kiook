@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="qrc:/qwebchannel.js"></script>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			@font-face{
+			  font-family: "Pingfang";
+			  src: url("ppp.ttf");
+			}
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html {
+				width: 1002px;
+				height: 620px;
+				border-radius: 6px;
+				background:#F7F8FC;
+				-webkit-text-size-adjust:none;
+			}
+			body {
+				font-family: "Pingfang";
+				width: 1000px;
+				height: 618px;
+				border-radius: 6px;
+				background:#F7F8FC;
+				border: 1px solid #000;
+				overflow: hidden;
+			}
+			#top {
+				width: 1000px;
+				height: 52px;
+				position: absolute;
+				background-color: #FFFFFF;
+				box-shadow: 0px 0px 2px 2px #f0f0f0;
+				z-index: 1;
+			}
+			#left {
+				position: absolute;
+				width: 190px;
+				height: 478px;
+				background-color: #FFFFFF;
+				z-index: 1000;
+				box-shadow: 0px 0px 2px 2px #f0f0f0;
+				overflow: hidden;
+				padding-top: 140px;
+			}
+			#left li{
+				list-style: none;
+				height: 44px;
+				position: relative;
+				left: -3px;
+				transition: all .5s;
+				-webkit-transition: all .5s; /* Safari */
+			}
+			#left li:hover{
+				transform: translate(3px,0px);
+				-webkit-transform:translate(3px,0px);
+				background: #F7F8FC;
+			}
+			.left_show {
+				float:  left;
+				height: 42px;
+				width: 3px;
+				background-color: #2F5DFE;
+				border-radius: 0px 3px 3px 0px;
+			}
+			.choose {
+				float: left;
+				margin-left: 24px;
+				height: 42px;
+				line-height: 42px;
+			}
+			.circle {
+				width: 20px;
+				height: 20px;
+				margin-top: 11px;
+				float: left;
+				border-radius: 11px;
+				background-color: #A8A8A7;
+			}
+			.main {
+				position: absolute;
+				top: 50px;
+				left: 222px;
+				width: 748px;
+				height: 568px;
+				/*background-color: #DCDCDC;*/
+			}
+			.title1{
+				margin-left: 20px;
+				margin-top: 10px;
+				height: 30px;
+				line-height: 30px;
+				font-size: 12px;
+			}
+			.create {
+				width:  748px;
+				height: 150px;
+				background-color: #fff;
+				border-radius: 12px;
+				box-shadow: 0px 0px 1px 1px #F0F0F0;
+				position: relative;
+			}
+			.part {
+				width: 600px;
+				height: 24px;
+				line-height: 24px;
+				margin-left: 20px;
+				position: absolute;
+			}
+			#start_interval {
+				width: 300px;
+				height: 24px;
+				float:  left;
+				position: relative;
+				overflow: hidden;
+			}
+			#input_start_interval {
+				position: relative;
+				top: -86px;
+				margin-left: 5px;
+				width: 290px;
+				height: 123px;
+				box-shadow: 0px 0px 6px 3px rgba(215,215,215,1);
+				background-color: #FFFFFF;
+				border-radius: 8px;
+				transition: all .5s;
+				-webkit-transition: all .5s;
+				z-index: 9;
+			}
+			.bc1 {
+				position:  absolute;
+				width: 300px;
+				height: 24px;
+				font-size: 14px;
+				z-index: 10;
+				background-color: #FFFFFF;
+				line-height: 24px;
+			}
+			.first {
+				top: 20px;
+			}
+			.second {
+				top: 64px;
+			}
+			.third {
+				top: 108px;
+			}
+			.in {
+				transform: scale(1);
+				width:22px;
+				height: 22px;
+				line-height: 22px;
+				float:left;
+				font-size:11px;
+				text-align: center;
+			}
+			.quan {
+				transform: scale(0.52);
+				width:22px;
+				height: 22px;
+				float:left;
+				border-radius: 11px;
+				z-index: 8;
+			}
+			.linecontiner {
+				width: 264px;
+				height:  4px;
+				margin-left: 24px;
+				position: absolute;
+				top: 45px;
+				z-index: 12;
+			}
+			.linecontiner2 {
+				width: 264px;
+				height:  4px;
+				margin-left: 24px;
+				position: absolute;
+				top: 99px;
+				z-index: 12;
+			}
+			.line {
+				width: 11px;
+				float: left;
+				height: 4px;
+			}
+			.l11{background-color: #E8EDFF;}
+			.l21{background-color: #E8EDFF;}
+			.l31{background-color: #E8EDFF;}
+			.l41{background-color: #E8EDFF;}
+			.l51{background-color: #E8EDFF;}
+			.l61{background-color: #E8EDFF;}
+			.l71{background-color: #E8EDFF;}
+			.l81{background-color: #E8EDFF;}
+			.l91{background-color: #E8EDFF;}
+			.l101{background-color: #E8EDFF;}
+			.l111{background-color: #E8EDFF;}
+			.l121{background-color: #E8EDFF;}
+			.l131{background-color: #E8EDFF;}
+			.l141{background-color: #E8EDFF;}
+			.l151{background-color: #E8EDFF;}
+			.l161{background-color: #E8EDFF;}
+			.l171{background-color: #E8EDFF;}
+			.l181{background-color: #E8EDFF;}
+			.l191{background-color: #E8EDFF;}
+			.l201{background-color: #E8EDFF;}
+			.l211{background-color: #E8EDFF;}
+			.l221{background-color: #E8EDFF;}
+			.l231{background-color: #E8EDFF;}
+			.l241{background-color: #E8EDFF;}
+			
+			.l12{background-color: #E8EDFF;}
+			.l22{background-color: #E8EDFF;}
+			.l32{background-color: #E8EDFF;}
+			.l42{background-color: #E8EDFF;}
+			.l52{background-color: #E8EDFF;}
+			.l62{background-color: #E8EDFF;}
+			.l72{background-color: #E8EDFF;}
+			.l82{background-color: #E8EDFF;}
+			.l92{background-color: #E8EDFF;}
+			.l102{background-color: #E8EDFF;}
+			.l112{background-color: #E8EDFF;}
+			.l122{background-color: #E8EDFF;}
+			.l132{background-color: #E8EDFF;}
+			.l142{background-color: #E8EDFF;}
+			.l152{background-color: #E8EDFF;}
+			.l162{background-color: #E8EDFF;}
+			.l172{background-color: #E8EDFF;}
+			.l182{background-color: #E8EDFF;}
+			.l192{background-color: #E8EDFF;}
+			.l202{background-color: #E8EDFF;}
+			.l212{background-color: #E8EDFF;}
+			.l222{background-color: #E8EDFF;}
+			.l232{background-color: #E8EDFF;}
+			.l242{background-color: #E8EDFF;}
+			#show_time_interval {
+				display: inline-block;
+				letter-spacing: 0.7px;
+			}
+			#start_time {
+				width: 300px;
+				height: 24px;
+				float:  left;
+				position: relative;
+				overflow: hidden;
+			}
+			#input_start_time {
+				position: relative;
+				padding-top: 4px;
+				top: -160px;
+				margin-left: 5px;
+				width: 200px;
+				height: 200px;
+				box-shadow: 0px 0px 6px 3px rgba(215,215,215,1);
+				background-color: #FFFFFF;
+				border-radius: 8px;
+				transition: all .5s;
+				-webkit-transition: all .5s;
+				z-index: 1;
+				font-size: 14px;
+				line-height: 26px;
+			}
+			.bc2 {
+				position:  absolute;
+				width: 300px;
+				height: 24px;
+				font-size: 14px;
+				z-index: 10;
+				background-color: #FFFFFF;
+				line-height: 24px;
+			}
+			.calendar {
+				width: 168px;
+				height: 168px;
+				margin-left: 11px;
+				margin-top: 4px;
+			}
+			#complete {
+				width: 42px;
+				border-radius: 10px;
+				float: left;
+				text-align: center;
+				margin-left: 16px;
+				background-color: #D1DBFF;
+				color: #2F5DFE;
+				height: 20px;
+				line-height: 20px;
+				margin-top: 3px;
+				cursor: pointer;
+			}
+			.day {
+				transform: scale(0.86);
+				float: left;
+				width: 19px;
+				height: 19px;
+				line-height: 19px;
+				font-size: 12px;
+				text-align: center;
+				margin-bottom:5px;
+				margin-left:5px;
+				border-radius: 9.5px;
+				letter-spacing: -0.5px;
+				/*background: #D1DBFF;*/
+				cursor:  pointer;
+			}
+			.lr {
+				float: left;
+				margin-top: 8.5px;
+				margin-left: 8px;
+			}
+			.week {
+				color: #2F5DFE!important;
+			}
+			.un {
+				color: #999999!important;
+			}
+			#match {
+				width: 300px;
+				height: 24px;
+				float:  left;
+				position: relative;
+				overflow: hidden;
+			}
+			.bc3 {
+				position:  absolute;
+				width: 300px;
+				height: 24px;
+				font-size: 14px;
+				z-index: 8;
+				background-color: #FFFFFF;
+				line-height: 24px;
+			}
+			#show_time_interval {
+				display: inline-block;
+				letter-spacing: 0.7px;
+			}
+			#input_match {
+				position: relative;
+				top: -86px;
+				margin-left: 5px;
+				width: 290px;
+				height: 83px;
+				box-shadow: 0px 0px 6px 3px rgba(215,215,215,1);
+				background-color: #FFFFFF;
+				border-radius: 8px;
+				transition: all .5s;
+				-webkit-transition: all .5s;
+				z-index: 7;
+			}
+			.inx {
+				transform: scale(1);
+				width:29px;
+				height: 29px;
+				line-height: 14.5px;
+				float:left;
+				font-size:14px;
+				text-align: center;
+			}
+			.quanx {
+				transform: scale(0.52);
+				width:29px;
+				height: 29px;
+				float:left;
+				border-radius: 14.5px;
+				z-index: 8;
+			}
+			.linex {
+				width: 14.5px;
+				float: left;
+				height: 4px;
+			}
+			.linecontinerx {
+				width: 261px;
+				height:  4px;
+				margin-left: 29px;
+				position: absolute;
+				top: 55px;
+				z-index: 12;
+			}
+			.bc4 {
+				position:  absolute;
+				width: 300px;
+				height: 24px;
+				font-size: 14px;
+				z-index: 6;
+				background-color: #FFFFFF;
+				line-height: 24px;
+			}
+			#last {
+				width: 300px;
+				height: 24px;
+				float:  left;
+				position: relative;
+				overflow: hidden;
+			}
+			#input_last {
+				position: relative;
+				top: -86px;
+				margin-left: 5px;
+				width: 280px;
+				height: 83px;
+				box-shadow: 0px 0px 6px 3px rgba(215,215,215,1);
+				background-color: #FFFFFF;
+				border-radius: 8px;
+				transition: all .5s;
+				-webkit-transition: all .5s;
+				z-index: 1;
+			}
+			.iny {
+				transform: scale(1);
+				width:38px;
+				height: 38px;
+				line-height: 19px;
+				float:left;
+				font-size:15px;
+				text-align: center;
+			}
+			.quany {
+				transform: scale(0.52);
+				width:38px;
+				height: 38px;
+				float:left;
+				border-radius: 19px;
+				z-index: 8;
+			}
+			.liney {
+				width: 19px;
+				float: left;
+				height: 4px;
+			}
+			.linecontinery {
+				width: 261px;
+				height:  4px;
+				margin-left: 28px;
+				position: absolute;
+				top: 48px;
+				z-index: 12;
+			}
+			#input_name {
+				margin-left: 5px;
+				float: left;
+				outline:0;
+				border: 0;
+				width: 100px;
+				border-bottom: 1px solid #DBDBDB;
+				height: 22px;
+				letter-spacing: 0.2px;
+			}
+			#name {
+				width: 300px;
+				height: 24px;
+				float:  left;
+				position: relative;
+				overflow: hidden;
+				font-size: 14px;
+			}
+			#upload {
+				width: 300px;
+				height: 24px;
+				float:  left;
+				position: relative;
+				overflow: hidden;
+				font-size: 14px;
+			}
+			#file {
+				height: 18px;
+			    float: left;
+				margin-left: 5px;
+			    background: #F0F0F0;
+				padding: 2px;
+				padding-left: 4px;
+				padding-right: 4px;
+			    border: 1px solid #F0F0F0;
+			    border-radius: 4px;
+			    overflow: hidden;
+			    color: #000;
+			    text-decoration: none;
+			    text-indent: 0;
+			    line-height: 18px;
+			}
+			#file input {
+				height: 24px;
+			    position: absolute;
+			    font-size: 20px;
+			    right: 0;
+			    top: 0;
+			    opacity: 0;
+			}
+			#file:hover {
+			    background: #AADFFD;
+			    border-color: #78C3F3;
+			    color: #004974;
+			    text-decoration: none;
+			}
+			.title2{
+				margin-left: 20px;
+				margin-top: 10px;
+				height: 20px;
+				line-height: 20x;
+				font-size: 12px;
+			}
+			.sure {
+				box-shadow: 2px 2px 6px 4px #A9BCFF;
+				font-size: 13px;
+				color:white;
+				border-radius: 26px;
+				position: absolute;
+				top: 46px; 
+				left: 642px;
+				height: 52px;
+				width: 52px;
+				text-align: center;
+				line-height: 52px;
+				background: -webkit-linear-gradient(left,#008ef9,#0050ff);
+				transition: all .5s;
+				-webkit-transition: all .5s;
+			}
+			.sure:hover {
+				box-shadow: 3px 3px 8px 5px #A9BCFF;
+				transform: scale(1.05);
+				-ms-transform:scale(1.05);     /* IE 9 */
+				-moz-transform:scale(1.05);     /* Firefox */
+				-webkit-transform:scale(1.05); /* Safari 和 Chrome */
+				-o-transform:scale(1.05);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="top">
+			
+		</div>
+		<div id="left">
+			<li>
+				<div class="left_show"></div>
+				<div class="choose">
+					<div class="circle"></div>
+					&nbsp;&nbsp;首页
+				</div>
+			</li>
+			<li>
+				<div class="left_show"></div>
+				<div class="choose">
+					<div class="circle"></div>
+					&nbsp;&nbsp;赛程创建
+				</div>
+			</li>
+			<li>
+				<div class="left_show"></div>
+				<div class="choose">
+					<div class="circle"></div>
+					&nbsp;&nbsp;赛程创建
+				</div>
+			</li>
+			<li>
+				<div class="left_show"></div>
+				<div class="choose">
+					<div class="circle"></div>
+					&nbsp;&nbsp;赛程创建
+				</div>
+			</li>
+			<li>
+				<div class="left_show"></div>
+				<div class="choose">
+					<div class="circle"></div>
+					&nbsp;&nbsp;赛程创建
+				</div>
+			</li>
+		</div>
+		<div class="main">
+			<div class=" title1">
+				创建赛程
+			</div>
+			<div class="create">
+				<div class="sure" onclick="make()">确认</div>
+				<div class="part first">
+					<div id="start_interval" >
+						<div class="bc1" onclick="start_interval()">
+							<img  src="dingdang.png" width="18px" style="margin-top: 2px;display: block; float: left;"/> <div style="display: block;float: left;">&nbsp;请选择首场比赛开始时段:&nbsp;</div> <div id="show_time_interval"></div>
+						</div>
+						<div id="input_start_interval">
+							;
+						</div>
+					</div>
+					<div id="start_time">
+						<div class="bc2" onclick="start_time()">
+							<img  src="dingdang.png" width="18px" style="margin-top: 2px;display: block; float: left;"/> <div style="display: block;float: left;">&nbsp;请选择比赛开始日期:&nbsp;</div> <div id="show_start_time"></div>
+						</div>
+						<div id="input_start_time">
+							<div style="margin-left: 20px;letter-spacing: -1px; height: 26px;">
+								<div style="float: left;">2020年&nbsp;&nbsp;5月</div>
+								<img src="lr.png" class="lr" height="9px"/>
+								<div id="complete" onclick="complete()">完成</div>
+							</div>
+							<div class="calendar">
+								<div class="day week">日</div>
+								<div class="day week">一</div>
+								<div class="day week">二</div>
+								<div class="day week">三</div>
+								<div class="day week">四</div>
+								<div class="day week">五</div>
+								<div class="day week">六</div>
+								<div class="day un">26</div>
+								<div class="day un">27</div>
+								<div class="day un">28</div>
+								<div class="day un">29</div>
+								<div class="day un">30</div>
+								<div class="day">01</div>
+								<div class="day">02</div>
+								<div class="day">03</div>
+								<div class="day">04</div>
+								<div class="day">05</div>
+								<div class="day">06</div>
+								<div class="day">07</div>
+								<div class="day">08</div>
+								<div class="day">09</div>
+								<div class="day">10</div>
+								<div class="day">11</div>
+								<div class="day">12</div>
+								<div class="day">13</div>
+								<div class="day">14</div>
+								<div class="day">15</div>
+								<div class="day">16</div>
+								<div class="day">17</div>
+								<div class="day">18</div>
+								<div class="day">19</div>
+								<div class="day">20</div>
+								<div class="day">21</div>
+								<div class="day">22</div>
+								<div class="day">23</div>
+								<div class="day">24</div>
+								<div class="day">25</div>
+								<div class="day">26</div>
+								<div class="day">27</div>
+								<div class="day">28</div>
+								<div class="day">29</div>
+								<div class="day">30</div>
+								<div class="day">31</div>
+								<div class="day un">01</div>
+								<div class="day un">02</div>
+								<div class="day un">03</div>
+								<div class="day un">04</div>
+								<div class="day un">05</div>
+								<div class="day un">06</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="part second">
+					<div id="match" >
+						<div class="bc3" onclick="match()">
+							<img  src="dingdang.png" width="18px" style="margin-top: 2px;display: block; float: left;"/> <div style="display: block;float: left;">&nbsp;请选择每天比赛场次数:&nbsp;</div> <div id="show_match"></div>
+						</div>
+						<div id="input_match">
+							
+						</div>
+					</div>
+					<div id="name" >
+						<div class="bc5" onclick="name()">
+							<img  src="dingdang.png" width="18px" style="margin-top: 2px;display: block; float: left;"/> <div style="display: block;float: left;">&nbsp;请输入比赛名称:</div> <input  id="input_name" onFocus="f1();" onBlur="b1();" />
+						</div>
+					</div>
+				</div>
+				<div class="part third">
+					<div id="last" >
+						<div class="bc4" onclick="last()">
+							<img  src="dingdang.png" width="18px" style="margin-top: 2px;display: block; float: left;"/> <div style="display: block;float: left;">&nbsp;请选择每场比赛的时长:&nbsp;</div> <div id="show_last"></div>
+						</div>
+						<div id="input_last">
+							
+						</div>
+					</div>
+					<div id="upload" >
+						<div class="bc5" >
+							<img  src="dingdang.png" width="18px" style="margin-top: 2px;display: block; float: left;"/> <div style="display: block;float: left;">&nbsp;请上传参赛队伍:</div>
+							<a href="javascript:;" id="file">选择文件
+								<input type="file" name="" id="up" onchange="getvl(this)">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="title2">
+				已建赛事
+			</div>
+			<div id="match_table"></div>
+		</div>
+		<script>
+			var fg=0,fg2=0,fg3=0,fg4=0,times=0,fir,sec,dd;
+			
+			function match() {
+				if(fg!=0||fg2!=0||fg4!=0) return;
+				if(fg3==0) {
+					document.getElementById('input_match').style.transform = 'translateY(' + 116 + 'px)';
+					document.getElementById('match').style.height="244px";
+					setTimeout(function() {
+						fg3=1;
+					},550);
+				}else {
+					document.getElementById('input_match').style.transform = 'translateY(' + 0+ 'px)';
+					setTimeout(function() {
+						document.getElementById('match').style.height="24px";
+						fg3=0;
+					},550);
+				}
+			}
+			function last() {
+				if(fg!=0||fg2!=0||fg3!=0) return;
+				if(fg4==0) {
+					document.getElementById('input_last').style.transform = 'translateY(' + 116 + 'px)';
+					document.getElementById('last').style.height="244px";
+					setTimeout(function() {
+						fg4=1;
+					},550);
+				}else {
+					document.getElementById('input_last').style.transform = 'translateY(' + -25+ 'px)';
+					setTimeout(function() {
+						document.getElementById('last').style.height="24px";
+						fg4=0;
+					},550);
+				}
+			}
+			function complete() {
+				document.getElementById('input_start_time').style.transform = 'translateY(' + -25+ 'px)';
+				setTimeout(function() {
+					document.getElementById('start_time').style.height="24px";
+					fg2=0;
+				},550);
+				document.getElementById('show_start_time').innerHTML="2020/05/"+dd;
+			}
+			window.onload = function () {
+				if (typeof qt != 'undefined') new QWebChannel(qt.webChannelTransport, function(channel) {
+				    bridge  = channel.objects.bridge;
+								  //document.getElementById('body').innerHTML="22345678";
+				} );
+				var day=document.getElementsByClassName('day');
+				for(var i=12;i<=42;i++) {
+					day[i].addEventListener("click",function(e){
+						var day=document.getElementsByClassName('day');
+						for(var i=12;i<=42;i++) day[i].style.background="rgba(0,0,0,0)";
+						this.style.background="#A9BCFF";
+						dd=this.innerText;
+						console.log(dd);
+					});
+				}
+				var it = document.getElementById('input_start_interval');
+				var s = "<div style='width:264px;height:22px;margin-left:13px;padding-top:14px;'>";
+				
+				
+				
+				
+				
+				
+				
+				//数字
+				for(var i=1;i<=12;i++) {
+					if(i<10) s+="<div class='in' id='"+i+"' onclick='f("+i+")'>"+i+"</div>";
+					else s+="<div class='in' id='"+i+"' onclick='f("+i+")'>"+i+"</div>";
+				}
+				s +="</div>";
+				//圆
+				s +="<div style='width:264px;height:22px;margin-left:13px;margin-top:0px;position:relative;z-index:10;'>";
+				for(var i=1;i<=12;i++) {
+					s+="<div class='quan' id='b"+i+"' onclick='f("+i+")'></div>";
+				}s +="</div>";
+				//线
+				s +="<div class='linecontiner'>";
+				for(var i=1;i<=12;i++) {
+					if(i==1) {
+						s+="<div class='line"+" l"+i+"2' id='a"+i+"' onclick='f("+i+")' style='border-radius: 2.5px 0px 0px 2.5px;'></div>";
+					}
+					else if(i==12)  {
+						s+="<div class='line"+" l"+i+"1' id='a"+i+"' onclick='f("+i+")' style='border-radius: 0px 2.5px 2.5px 0px;'></div>";
+					}
+					else s+="<div class='line"+" l"+i+"1' id='a"+i+"' onclick='f("+i+")'></div>"+"<div class='line"+" l"+i+"2' id='a"+i+"' onclick='f("+i+")'></div>";
+				}s +="</div>";
+				//数字
+				s+="<div style='width:264px;height:22px;margin-left:13px;margin-top:10px;'>";
+				for(var i=13;i<=24;i++) {
+					s+="<div class='in' id='"+i+"' onclick='f("+i+")'>"+i+"</div>";
+				}
+				s +="</div>";
+				//圆
+				s +="<div style='width:264px;height:22px;margin-left:13px;margin-top:0px;position:relative;z-index:10;'>";
+				for(var i=13;i<=24;i++) {
+					s+="<div class='quan' id='b"+i+"' onclick='f("+i+")'></div>";
+				}s +="</div>";
+				//线
+				s +="<div class='linecontiner2'>";
+				for(var i=13;i<=24;i++) {
+					if(i==13) {
+						s+="<div class='line"+" l"+i+"2' id='a"+i+"' onclick='f("+i+")' style='border-radius: 2.5px 0px 0px 2.5px;'></div>";
+					}
+					else if(i==24)  {
+						s+="<div class='line"+" l"+i+"1' id='a"+i+"' onclick='f("+i+")' style='border-radius: 0px 2.5px 2.5px 0px;'></div>";
+					}
+					else s+="<div class='line"+" l"+i+"1' id='a"+i+"' onclick='f("+i+")'></div>"+"<div class='line"+" l"+i+"2' id='a"+i+"' onclick='f("+i+")'></div>";
+				}s +="</div>";
+				document.getElementById('input_start_interval').innerHTML=s;
+				
+				
+				
+				
+				
+				x();
+				
+				
+				y();
+				
+				
+				
+				
+			}
+			function y() {
+				var s = "<div style='width:266px;height:33px;margin-left:10px;padding-top:14px;'>";
+				//数字
+				for(var i=1;i<=7;i++) {
+					if(i<=6) s+="<div class='iny' id='"+i+"' onclick='fff("+i+")'>"+i/2+"h</div>";
+					else s+="<div class='iny' id='"+i+"' onclick='fff("+i+")'>更多</div>";
+				}
+				s +="</div>";
+				//圆
+				s +="<div style='width:261px;height:38px;margin-left:10px;margin-top:0px;position:absolute;z-index:13;top: 31px;'>";
+				for(var i=1;i<=7;i++) {
+					s+="<div class='quany' id='bbb"+i+"' onclick='fff("+i+")'></div>";
+				}s +="</div>";
+				//线
+				s +="<div class='linecontinery'>";
+				for(var i=1;i<=7;i++) {
+					if(i==1) {
+						s+="<div class='liney"+" l"+i+"2' id='aaa"+i+"' onclick='fff("+i+")' style='border-radius: 2.5px 0px 0px 2.5px;'></div>";
+					}
+					else if(i==7)  {
+						s+="<div class='liney"+" l"+i+"1' id='aaa"+i+"' onclick='fff("+i+")' style='border-radius: 0px 2.5px 2.5px 0px;'></div>";
+					}
+					else s+="<div class='liney"+" l"+i+"1' id='aaa"+i+"' onclick='fff("+i+")'></div>"+"<div class='liney"+" l"+i+"2' id='aaa"+i+"' onclick='fff("+i+")'></div>";
+				}s +="</div>";
+				document.getElementById('input_last').innerHTML=s;
+			}
+			function x() {
+				var s = "<div style='width:264px;height:29px;margin-left:14.5px;padding-top:14px;'>";
+				//数字
+				for(var i=1;i<=9;i++) {
+					if(i<=8) s+="<div class='inx' id='"+i+"' onclick='ff("+i+")'>"+i+"<br>场</div>";
+					else s+="<div class='inx' id='"+i+"' onclick='ff("+i+")'>更<br>多</div>";
+				}
+				s +="</div>";
+				//圆
+				s +="<div style='width:261px;height:29px;margin-left:14.5px;margin-top:0px;position:relative;z-index:13;'>";
+				for(var i=1;i<=9;i++) {
+					s+="<div class='quanx' id='bb"+i+"' onclick='ff("+i+")'></div>";
+				}s +="</div>";
+				//线
+				s +="<div class='linecontinerx'>";
+				for(var i=1;i<=9;i++) {
+					if(i==1) {
+						s+="<div class='linex"+" l"+i+"2' id='aa"+i+"' onclick='ff("+i+")' style='border-radius: 2.5px 0px 0px 2.5px;'></div>";
+					}
+					else if(i==9)  {
+						s+="<div class='linex"+" l"+i+"1' id='aa"+i+"' onclick='ff("+i+")' style='border-radius: 0px 2.5px 2.5px 0px;'></div>";
+					}
+					else s+="<div class='linex"+" l"+i+"1' id='aa"+i+"' onclick='ff("+i+")'></div>"+"<div class='linex"+" l"+i+"2' id='aa"+i+"' onclick='ff("+i+")'></div>";
+				}s +="</div>";
+				document.getElementById('input_match').innerHTML=s;
+			}
+			function start_interval() {
+				if(fg3!=0||fg2!=0||fg4!=0) return;
+				if(fg==0) {
+					document.getElementById('input_start_interval').style.transform = 'translateY(' + 116 + 'px)';
+					document.getElementById('start_interval').style.height="164px";
+					setTimeout(function() {
+						fg=1;
+					},550);
+				}else {
+					document.getElementById('input_start_interval').style.transform = 'translateY(' + -25 + 'px)';
+					setTimeout(function() {
+						document.getElementById('start_interval').style.height="24px";
+						fg=0;
+					},550);
+				}
+			}
+			function fff(id) {
+				document.styleSheets[0].cssRules[23].style.zIndex="1";
+				document.styleSheets[0].cssRules[24].style.zIndex="1";
+				document.getElementById("bbb"+id).style.background="#2F5DFE";
+				document.getElementById('show_last').innerHTML=id/2+"h";
+				setTimeout(function() {
+					document.getElementById('input_last').style.transform = 'translateY(' + 0+ 'px)';
+				},600);
+				setTimeout(function() {
+					document.getElementById('last').style.height="24px";
+					fg4=0;
+					document.getElementById("bbb"+id).style.background="rgba(0,0,0,0)";
+					document.styleSheets[0].cssRules[23].style.zIndex="12";
+					document.styleSheets[0].cssRules[24].style.zIndex="12";
+					times=0;
+				},1050);
+			}
+			function ff(id) {
+				document.styleSheets[0].cssRules[23].style.zIndex="1";
+				document.styleSheets[0].cssRules[24].style.zIndex="1";
+				document.getElementById("bb"+id).style.background="#2F5DFE";
+				document.getElementById('show_match').innerHTML=id+"场";
+				setTimeout(function() {
+					document.getElementById('input_match').style.transform = 'translateY(' + 0+ 'px)';
+				},600);
+				setTimeout(function() {
+					document.getElementById('match').style.height="24px";
+					fg3=0;
+					document.getElementById("bb"+id).style.background="rgba(0,0,0,0)";
+					document.styleSheets[0].cssRules[23].style.zIndex="12";
+					document.styleSheets[0].cssRules[24].style.zIndex="12";
+					times=0;
+				},1050);
+			}
+			function f(id) {
+				if(times<2) {
+					document.styleSheets[0].cssRules[23].style.zIndex="1";
+					document.styleSheets[0].cssRules[24].style.zIndex="1";
+					document.getElementById("b"+id).style.background="#2F5DFE";
+					if(times==0) fir=id;
+					else sec=id;
+					times++;
+					if(times==2) {
+						var tmp=fir;
+						if(fir>sec) {
+							fir=sec;
+							sec=tmp;
+						}
+						change(fir,sec);
+					}
+				}
+			}
+			function change(fir,sec) {//26-49 50-73
+				document.getElementById('show_time_interval').innerHTML=fir+":00-"+sec+":00";
+				if(fir!=sec) {
+					var rule = document.styleSheets[0].cssRules[49+fir];
+					rule.style.background="#2F5DFE";
+					rule = document.styleSheets[0].cssRules[25+sec];
+					rule.style.background="#2F5DFE";
+				}
+				for(var i=fir+1;i<=sec-1;i++) {
+					var rule = document.styleSheets[0].cssRules[25+i];
+					rule.style.background="#2F5DFE";
+					rule = document.styleSheets[0].cssRules[49+i];
+					rule.style.background="#2F5DFE";
+				}
+				setTimeout(function() {
+					document.getElementById('input_start_interval').style.transform = 'translateY(-' + 25 + 'px)';
+				},600);
+				setTimeout(function() {
+					var rule = document.styleSheets[0].cssRules[49+fir];
+					rule.style.background="#E8EDFF";
+					rule = document.styleSheets[0].cssRules[25+sec];
+					rule.style.background="#E8EDFF";
+					for(var i=fir+1;i<=sec-1;i++) {
+						var rule = document.styleSheets[0].cssRules[25+i];
+						rule.style.background="#E8EDFF";
+						rule = document.styleSheets[0].cssRules[49+i];
+						rule.style.background="#E8EDFF";
+					}
+					document.getElementById('start_interval').style.height="24px";
+					fg=0;
+					document.getElementById("b"+fir).style.background="rgba(0,0,0,0)";
+					document.getElementById("b"+sec).style.background="rgba(0,0,0,0)";
+					document.styleSheets[0].cssRules[23].style.zIndex="12";
+					document.styleSheets[0].cssRules[24].style.zIndex="12";
+					times=0;
+				},1050);
+			}
+			function start_time() {
+				if(fg!=0||fg3!=0||fg4!=0) return;
+				if(fg2==0) {
+					document.getElementById('input_start_time').style.transform = 'translateY(' + 189 + 'px)';
+					document.getElementById('start_time').style.height="244px";
+					setTimeout(function() {
+						fg2=1;
+					},550);
+				}else {
+					document.getElementById('input_start_time').style.transform = 'translateY(' + -25+ 'px)';
+					setTimeout(function() {
+						document.getElementById('start_time').style.height="24px";
+						fg2=0;
+					},550);
+				}
+			}
+		</script>
+		<script>
+			var dir;
+			//show_time_interval 开始时间段
+			//show_start_time 比赛开始日期
+			//show_match 每天比赛场次数
+			//input_name 比赛名称
+			//show_last 比赛时长
+			//dir 是文件路径
+			function getvl(obj) {
+			    dir=obj.value;
+			}
+			function dat(y, m, d) {
+			    if(m==1||m==2){//一二月换算
+			        m+=12;
+			        y--;
+			    }
+			    var week = (d + 2*m +parseInt(3*(m+1)/5) + y + parseInt(y/4) - parseInt(y/100) + parseInt(y/400) + 1)%7;
+			    return week;//其中1~7表示周一到周日
+			}
+			   
+			function make() {
+				var show_time_interval=document.getElementById('show_time_interval');
+				var show_start_time=document.getElementById('show_start_time');
+				var show_match=document.getElementById('show_match');
+				var input_name=document.getElementById('input_name');
+				var show_last=document.getElementById('show_last');
+				//console.log(show_time_interval.innerText);
+				//console.log(show_start_time.innerText);
+				//console.log(show_match.innerText);
+				//console.log(input_name.value);
+				//console.log(show_last.innerText);
+				//console.log(dir);
+				var arr = show_time_interval.innerText.split("-");
+				var start="",end="";
+				for(var i=0;i<arr[0].length&&arr[0][i]!=':';i++) {
+					start+=arr[0][i];
+				}
+				for(var i=0;i<arr[1].length&&arr[1][i]!=':';i++) {
+					end+=arr[1][i];
+				}
+				start=parseInt(start);
+				end=parseInt(end);
+				//console.log(start);console.log(end);
+				arr = show_start_time.innerText.split("/");
+				var day=dat(parseInt(arr[0]),parseInt(arr[1]),parseInt(arr[2]));
+				if(day==0) day=7;
+				console.log(day);
+				var changci = show_match.innerText.split("场")[0];
+				console.log(changci);
+				var name=input_name.value;
+				var shichang=show_last.innerText.split("h")[0];
+				console.log(name);
+				console.log(shichang);
+				/**
+				 * start-end:每天第一场比赛开始时间
+				 * day:星期几打第一场
+				 * changci:一天打几场
+				 * shichang:每场持续时间
+				 * name:比赛名称
+				 * dir:参赛队员信息路径
+				 * */
+				 if (typeof bridge !== 'undefined') {
+				    bridge.get(4,16,30,6,2,5,"F:/ACM/tmpcode/A.in") ;
+				 }
+				 
+			}
+			function showAlert(a) {
+			    alert(a);
+			}
+		</script>
+	</body>
+</html>

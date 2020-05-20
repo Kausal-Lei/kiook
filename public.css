@@ -1,0 +1,45 @@
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 300
+}
+
+ul,
+dl,
+li {
+	list-style: none
+}
+
+a {
+	text-decoration: none
+}
+
+a:hover {
+	text-decoration: none
+}
+
+img {
+	display: block;
+	border: 0
+}
+
+
+
+
+
+.hide {
+	display: none
+}
+
+.fl {
+	float: left
+}
+
+.fr {
+	float: right
+}

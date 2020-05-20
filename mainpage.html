@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery-3.3.1.min.js"></script>
+		<style>
+			@font-face{
+			  font-family: "Pingfang";
+			  src: url("ppp.ttf");
+			}
+			@font-face{
+			  font-family: "xi";
+			  src: url("xi.ttf");
+			}
+			@font-face{
+			  font-family: "cu";
+			  src: url("cu.ttf");
+			}
+			a {text-decoration: none;}
+			a:link {text-decoration: none;}
+			a:visited {text-decoration: none;}
+			a:hover {text-decoration: none;}
+			a:active {text-decoration: none;}
+			a:focus {text-decoration: none;}
+			html {
+				width: 1072px;
+				height: 696px;
+				overflow: hidden;
+			}
+			body {
+				width: 1072px;
+				height: 696px;
+				border-radius: 8px;
+				overflow: hidden;
+			}
+			*{
+				margin: 0 auto;
+				padding: 0;
+			}
+			#left {
+				position: absolute;
+				width: 208px;
+				height: 536px;
+				background-color: #FFFFFF;
+				z-index: 1000;
+				box-shadow: 0px 0px 4px 2px rgb(240,240,240);
+				overflow: hidden;
+				padding-top: 140px;
+				font-size: 15px;
+			}
+			#left a{
+				display: block;
+				font-family: "Pingfang";
+				height: 55px;
+				line-height: 55px;
+				position: relative;
+				color: #999999;
+				left: -3px;
+				transition: all .5s;
+				-webkit-transition: all .5s; /* Safari */
+			}
+			#left a:hover{
+				transform: translate(3px,0px);
+				-webkit-transform:translate(3px,0px);
+				background: #F7F8FC;
+				color: #436DFD;
+			}
+			.ch {
+				transform: translate(3px,0px);
+				-webkit-transform:translate(3px,0px);
+				background: #F7F8FC;
+			}
+			.ch .choose {
+				color:#436DFD;
+			}
+			.left_show {
+				float:  left;
+				height: 55px;
+				width: 3px;
+				background-color: #2F5DFE;
+				border-radius: 0px 3px 3px 0px;
+			}
+			.choose {
+				display: block;
+				float: left;
+				margin-left: 34px;
+				height: 55px;
+				line-height: 55px;
+				pointer-events:none;
+			}
+			.circle {
+				width: 12px;
+				height: 12px;
+				margin-top: 21.5px;
+				margin-left: 20px;
+				margin-right: 4px;
+				float: left;
+			}
+			.x1 {background-image: url(main1.png);background-size: 100% 100%;}
+			#left a:hover .x1 {background-image: url(main2.png);}
+			.x2 {background-image: url(create1.png);background-size: 100% 100%;}
+			#left a:hover .x2 {background-image: url(create2.png);}
+			.x3 {background-image: url(business1.png);background-size: 100% 100%;}
+			#left a:hover .x3 {background-image: url(business2.png);}
+			.x4 {background-image: url(chat1.png);background-size: 100% 100%;}
+			#left a:hover .x4 {background-image: url(chat2.png);}
+			.x5 {background-image: url(setting1.png);background-size: 100% 100%;}
+			#left a:hover .x5 {background-image: url(setting2.png);}
+			.ma {
+				position: absolute;
+				left: 10px;
+				top: 10px;
+				width: 1052px;
+				height: 676px;
+				overflow: hidden;
+				font-family: "Pingfang";
+				background: #F2F4F9;
+				border-radius: 8px;
+				box-shadow: 0px 0px 10px rgba(0,0,0,0.6);
+			}
+			.logo {
+				font-size: 28px;
+				position: absolute;
+				top: 22px;
+				left: 26px;
+			}
+			.logo span {
+				color: #2F5DFE;
+			}
+			.calendar {
+				width: 252px;
+				height: 252px;
+				margin-left: 24px;
+				margin-top: 0px;
+			}
+			.day {
+				position: relative;
+				color: rgb(0,1,38);
+				font-family: "cu";
+				float: left;
+				margin: 3px;
+				width: 30px;
+				height: 30px;
+				line-height: 30px;
+				font-size: 13px;
+				text-align: center;
+				border-radius: 15px;
+				/*background: #D1DBFF;*/
+				cursor:  pointer;
+			}
+			.date {
+				width: 270px;
+				margin-left: 30px;
+				height: 40px;
+				line-height: 40px;
+				font-size: 23px;
+				margin-top: 15px;
+			}
+			.date div {
+				pointer-events: none;
+			}
+			.week {
+				color: rgb(142,148,175)!important;
+			}
+			.un {
+				color: rgb(218,219,225)!important;
+			}
+			.right {
+				border-radius: 10px;
+				box-shadow: 0px 0px 4px 1.5px rgb(240,240,240);
+				position: absolute;
+				right: 30px;
+				bottom: 31px;
+				width: 300px;
+				height: 570px;
+				background: #FFFFFF;
+			}
+			.lr {
+				margin-top: 12px;
+				margin-left: 60px;
+				float: left;
+				cursor: pointer;
+			}
+			.show_contest {
+				margin-top: 6px;
+				margin-left: 30px;
+				font-family: "cu";
+				font-size: 15px;
+				line-height: 46px;
+				cursor: default;
+			}
+			.match {
+				margin-left: 0;
+				width: 260px;
+				height: 195px;
+				line-height: 32px;
+				font-size: 13px;
+				font-family: "Pingfang";
+				overflow: hidden;
+			}
+			.fight {
+				float: left;
+				margin-left: 10px;
+				width: 188px;
+				margin-bottom: 18px;
+				border-top-right-radius: 8px;
+				border-bottom-right-radius: 8px;
+				height: 32px;
+				text-align: center;
+				letter-spacing: 0.3px;
+			}
+			.last {
+				margin-bottom: 10px;
+			}
+			._1 {
+				background: #FFF8DA;
+				border-left: 2px solid #FED304;
+			}
+			._2 {
+				background: #E0E7FF;
+				border-left: 2px solid #7F6DF5;
+			}
+			._3 {
+				background: #FFEBF0;
+				border-left: 2px solid #FF7A9A;
+			}
+			._4 {
+				background: #DBEFFF;
+				border-left: 2px solid #1094FF;
+			}
+			._5 {
+				background: #EAF7EF;
+				border-left: 2px solid #73CB96;
+			}
+			.match{
+			    overflow: auto;
+			}
+			.match::-webkit-scrollbar {
+			    width: 8px;
+			    height: 0px;
+			}
+			/*正常情况下滑块的样式*/
+			.match::-webkit-scrollbar-thumb {
+			    background-color: rgba(240,240,240,0.5);
+			}
+			
+			.match::-webkit-scrollbar-thumb:hover {
+			    background-color: rgba(220,220,220,1);
+			}
+			.match::-webkit-scrollbar-thumb {
+			    border-radius: 13px;
+			}
+			.mid {
+				width:  450px;
+				margin-left: 240px;
+				pointer-events: none;
+			}
+			.watching_rate {
+				margin-top: 40px;
+				line-height: 34px;
+				font-size: 12px;
+			}
+			.common {
+				background: rgb(254,254,254);
+				box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.1);
+				border: 0.5px solid rgba(230,230,230,0.5);
+				transition: all .6s;
+				-webkit-transition: all .6s;
+			}
+			.common:hover {
+				box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
+				 transform: scale(1.005);
+				 -ms-transform:scale(1.005);    
+				 -moz-transform:scale(1.005); 
+				 -webkit-transform:scale(1.005);
+				 -o-transform:scale(1.005);
+			}
+			.l {
+				width: 210px;
+				height:  90px;
+				float: left;
+				border-radius: 8px;
+				position: relative;
+				pointer-events: initial;
+				cursor: default;
+			}
+			.r {
+				margin-left: 26px;
+				width: 210px;
+				height:  90px;
+				float: left;
+				border-radius: 8px;
+				pointer-events: initial;
+				cursor: default;
+				position: relative;
+			}
+			.month {
+				font-size: 20px;
+				margin-left: 16px;
+				margin-top: 7px;
+			}
+			.l .wating {
+				color:rgb(23, 152, 255) ;
+			}
+			.r .wating {
+				color:rgb(248, 215, 133);
+			}
+			.wating {
+				margin-top: 4px;
+				margin-left: 16px;
+				font-size: 30px;
+			}
+			.change {
+				color: #FF7A9A;
+				font-family: "xi";
+				line-height: 12px;
+				position: absolute;
+				bottom: 18px;
+				right: 20px;
+			}
+			.photo {
+				margin-top: 100px;
+				line-height: 34px;
+				font-size: 12px;
+			}
+			.draw {
+				height: 206px;
+				border-radius: 10px;
+				position: relative;
+				pointer-events: initial;
+				cursor: default;
+			}
+			.tt {
+				margin-top: 10px;
+				line-height: 34px;
+				font-size: 12px;
+				pointer-events: initial;
+				cursor: default;
+			}
+			.table {
+				border-radius: 10px;
+				height: 185px;
+				overflow: hidden;
+			}
+			.hah {
+				position: absolute;
+				top: 4px;
+				left: 260px;
+				height: 26px;
+				line-height: 26px;
+				font-size: 12px;
+				z-index: 9999999;
+				cursor: pointer;
+			}
+			.ri {
+				text-align: center;
+				width: 26px;
+				height: 26px;
+				line-height: 26px;
+				float: left;
+				z-index: 9999999;
+			}
+			.zhou {
+				text-align: center;
+				width: 26px;
+				height: 26px;
+				line-height: 26px;
+				float: left;
+				z-index: 99999999;
+			}
+			.yue {
+				text-align: center;
+				width: 26px;
+				height: 26px;
+				line-height: 26px;
+				float: left;
+				z-index: 9999999;
+			}
+			#bc {
+				border-radius: 4px;
+				position: absolute;
+				top: 4px;
+				left: 260px;
+				width: 26px;
+				height: 26px;
+				background: #E0E7FF;
+				z-index: 1;
+				transition: all .6s;
+				-webkit-transition: all .6s;
+			}
+			.hah2 {
+				position: absolute;
+				top: 4px;
+				left: 378px;
+				height: 26px;
+				line-height: 26px;
+				font-size: 14px;
+				z-index: 9999999;
+				cursor: pointer;
+			}
+			table {
+				border-collapse: collapse;
+				font-size: 12px;
+			}
+			tr {
+				height: 37px;
+				border-top: 1px solid #E1E7FF;
+			}
+			th {
+				background-color: #E1E7FF;
+			}
+			th:nth-child(1){
+				width: 160px;
+			}
+			th:nth-child(2){
+				width: 90px;
+			}
+			th:nth-child(3){
+				width: 90px;
+			}
+			th:nth-child(4){
+				width: 110px;
+			}
+			td {
+				text-align: center;
+			}
+			.close div {
+				padding: 10px;
+				border-radius: 16px;
+				background: #FFFFFF;
+				box-shadow: 0px 0px 8px rgba(0,0,0,.20);
+				float: left;
+				margin-top: 12px;
+				margin-right: 10px;
+				margin-left: 10px;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				cursor: pointer;
+			}
+			.close {
+				position: absolute;
+				top: 2px;
+				right: 10px;
+			}
+			.hi {
+				width: 180px;
+				position:  absolute;
+				height: 32px;
+				background: #7D9AFC;
+				line-height: 32px;
+				border-radius: 4px;
+				top: 14px;
+				right: 240px;
+				font-size: 12px;
+				color: white;
+				font-family: "xi";
+				pointer-events: none;
+			}
+			.shu {
+				position:  absolute;
+				height: 20px;
+				width: 2px;
+				background: #DDDFE4;
+				top: 20px;
+				right: 197px;
+			}
+			.logo {
+				font-size: 28px;
+				position: absolute;
+				top: 10px;
+				left: 26px;
+			}
+			.logo2 {
+				font-size: 12px;
+				position: absolute;
+				top: 48px;
+				left: 26px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="ma">
+			<div class="hi"><img src="peo9.png" height="20px" style="float: left;margin-top: 6px;margin-left: 14px;margin-right: 10px;"/>Hi, welcome to kiook.</div>
+			<div class="shu"></div>
+			<div class="close"><div><img src="min.png" width="12px"/></div><div><img src="mid.png" width="12px"/></div><div><img src="close.png" width="12px"/></div></div>
+			<div id="left">
+				<div class="logo">
+					<span>k</span>iook
+				</div>
+				<div class="logo2">一款智能电竞赛程软件</div>
+				<a href="#"  class="ch">
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x1" style="background-image: url(main2.png);" ></div>
+						&nbsp;&nbsp;&nbsp;首页
+					</div>
+				</a>
+				<a href="ccreate.html" >
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x2" ></div>
+						&nbsp;&nbsp;赛程创建
+					</div>
+				</a>
+				<a href="business.html">
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x3"></div>
+						&nbsp;&nbsp;招商页面
+					</div>
+				</a>
+				<a href="chat.html">
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x4"></div>
+						&nbsp;&nbsp;私信
+					</div>
+				</a>
+				<a href="#">
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x5"></div>
+						&nbsp;&nbsp;设置
+					</div>
+				</a>
+			</div>
+			<div class="right common">
+				<div class="date">
+					<div style="float: left;">2020年 &nbsp;5月</div><img src="lr.png" class="lr" height="16px"/>
+				</div>
+				<div class="calendar">
+					<div class="day week">日</div>
+					<div class="day week">一</div>
+					<div class="day week">二</div>
+					<div class="day week">三</div>
+					<div class="day week">四</div>
+					<div class="day week">五</div>
+					<div class="day week">六</div>
+					<div class="day un">26</div>
+					<div class="day un">27</div>
+					<div class="day un">28</div>
+					<div class="day un">29</div>
+					<div class="day un">30</div>
+					<div class="day">01</div>
+					<div class="day">02</div>
+					<div class="day">03</div>
+					<div class="day">04</div>
+					<div class="day">05</div>
+					<div class="day">06</div>
+					<div class="day">07</div>
+					<div class="day">08</div>
+					<div class="day">09</div>
+					<div class="day">10</div>
+					<div class="day">11</div>
+					<div class="day">12</div>
+					<div class="day">13</div>
+					<div class="day">14</div>
+					<div class="day">15</div>
+					<div class="day">16</div>
+					<div class="day">17</div>
+					<div class="day">18</div>
+					<div class="day">19</div>
+					<div class="day">20</div>
+					<div class="day">21</div>
+					<div class="day">22</div>
+					<div class="day">23</div>
+					<div class="day">24</div>
+					<div class="day">25</div>
+					<div class="day">26</div>
+					<div class="day">27</div>
+					<div class="day">28</div>
+					<div class="day">29</div>
+					<div class="day">30</div>
+					<div class="day">31</div>
+					<div class="day un">01</div>
+					<div class="day un">02</div>
+					<div class="day un">03</div>
+					<div class="day un">04</div>
+					<div class="day un">05</div>
+					<div class="day un">06</div>
+				</div>
+				<div class="show_contest">
+					12号<br>
+					<div class="match">
+						<div style="float: left;">13:00</div><div class="fight _1">IG - WE</div>
+						<div style="float: left;">14:00</div><div class="fight _2">RNG - EDG</div>
+						<div style="float: left;">15:00</div><div class="fight _3">FPX - MAD</div>
+						<div style="float: left;">16:00</div><div class="fight _4">V5 - VG</div>
+						<div style="float: left;">17:00</div><div class="fight _5">WE - RW</div>
+						<div style="float: left;">18:00</div><div class="fight _1">ES - FW</div>
+						<div style="float: left;">19:00</div><div class="fight _2">LGD - LNG</div>
+						<div style="float: left;">20:00</div><div class="fight _3">TES - SKT</div>
+						<div style="float: left;">21:00</div><div class="fight _4">GRF - DWG</div>
+						<div style="float: left;">22:00</div><div class="fight _5 last">AFS - DRX</div>
+					</div>
+				</div>
+			</div>
+			<div class="mid">
+				<div class="watching_rate">
+					总观看人数<br>
+					<div class="l common">
+						<div class="month">4月</div>
+						<div class="wating">306w</div>
+						<div class="change">5% ↑</div>
+					</div><div class="r common">
+						<div class="month">5月</div>
+						<div class="wating">297w</div>
+						<div style="color: rgb(61, 183, 110);" class="change">3% ↓</div>
+					</div>
+				</div>
+				<div class="photo">
+					历史观看人数<br>
+					<div class="draw common">
+						<div id="bc"></div>
+						<div class="hah">
+							<div class="ri">日</div>
+							<div class="zhou">周</div>
+							<div class="yue">月</div>
+						</div>
+						<div class="hah2">4月 &nbsp;<img src="llrr.png" height="9px"/></div>
+						<img src="tu.png" width="426px" style="margin-top: 30px;margin-left: 10px;" />
+					</div>
+				</div>
+				<div class="tt">
+					历史赛事<br>
+					<div class="table common">
+						<table border="0">
+						  <tr>
+						    <th>赛事名称</th>
+						    <th>年份</th>
+							<th>时间</th>
+							<th>观看人数</th>
+						  </tr>
+						  <tr>
+						    <td>S9 · 英雄联盟</td>
+						    <td>2019</td>
+							<td>10/14</td>
+							<td>2840W</td>
+						  </tr>
+						  <tr>
+						    <td>S8 · 英雄联盟</td>
+						    <td>2018</td>
+						    <td>9/27</td>
+						    <td>2730W</td>
+						  </tr>
+						  <tr>
+						    <td>S7 · 英雄联盟</td>
+						    <td>2017</td>
+						    <td>11/01</td>
+						    <td>2320W</td>
+						  </tr>
+						  <tr>
+						    <td>S6 · 英雄联盟</td>
+						    <td>2016</td>
+						    <td>07/01</td>
+						    <td>1980W</td>
+						  </tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			var color=["F8D785","FF7D9D","3DB76E","1798FF"];
+			window.onload = function() {
+				var day=document.getElementsByClassName('day');
+				for(var i=12;i<=42;i++) {
+					if(Math.random()<=0.15) {
+						var d=document.createElement('div');
+						var ra=parseInt(Math.random()*1000);
+						d.style.cssText = "position: absolute;bottom: 2px;left: 13px;width: 4px;height: 4px;border-radius: 2px;background: #"+color[ra%color.length]+";"
+						if(i!=23) day[i].appendChild(d);
+					}
+					if(i==23) day[i].style.background="#2F5DFE",day[i].style.color="#FFF";
+					day[i].addEventListener("click",function(e){
+						var day=document.getElementsByClassName('day');
+						for(var i=12;i<=42;i++) {
+							day[i].style.background="rgba(0,0,0,0)",day[i].style.color="rgb(0,1,38)";
+						}
+						this.style.background="#2F5DFE";
+						this.style.color="#FFF";
+						dd=this.innerText;
+						console.log(dd);
+					});
+				}
+
+				$(".zhou").hover(function(){
+					$("#bc").css("transform","translateX(26px)");
+				},function(){
+				    $("#bc").css("transform","translateX(0px)");
+				});
+				$(".yue").hover(function(){
+					$("#bc").css("transform","translateX(52px)");
+				},function(){
+				    $("#bc").css("transform","translateX(0px)");
+				});
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			@font-face{
+			  font-family: "Pingfang";
+			  src: url("ppp.ttf");
+			}
+			@font-face{
+			  font-family: "xi";
+			  src: url("xi.ttf");
+			}
+			@font-face{
+			  font-family: "cu";
+			  src: url("cu.ttf");
+			}
+			a {text-decoration: none;}
+			a:link {text-decoration: none;}
+			a:visited {text-decoration: none;}
+			a:hover {text-decoration: none;}
+			a:active {text-decoration: none;}
+			a:focus {text-decoration: none;}
+			* {
+				margin: 0 auto;
+				padding: 0;
+			}
+			html {
+				width: 1072px;
+				height: 696px;
+				overflow: hidden;
+			}
+			body {
+				width: 1072px;
+				height: 696px;
+				border-radius: 8px;
+				overflow: hidden;
+			}
+			#left {
+				position: absolute;
+				width: 208px;
+				height: 536px;
+				background-color: #FFFFFF;
+				z-index: 1000;
+				box-shadow: 0px 0px 4px 2px rgb(240,240,240);
+				overflow: hidden;
+				padding-top: 140px;
+				font-size: 15px;
+			}
+			#left a{
+				display: block;
+				font-family: "Pingfang";
+				height: 55px;
+				line-height: 55px;
+				position: relative;
+				color: #999999;
+				left: -3px;
+				transition: all .5s;
+				-webkit-transition: all .5s; /* Safari */
+			}
+			#left a:hover{
+				transform: translate(3px,0px);
+				-webkit-transform:translate(3px,0px);
+				background: #F7F8FC;
+				color: #436DFD;
+			}
+			.ch {
+				transform: translate(3px,0px);
+				-webkit-transform:translate(3px,0px);
+				background: #F7F8FC;
+			}
+			.ch .choose {
+				color:#436DFD;
+			}
+			.left_show {
+				float:  left;
+				height: 55px;
+				width: 3px;
+				background-color: #2F5DFE;
+				border-radius: 0px 3px 3px 0px;
+			}
+			.choose {
+				float: left;
+				margin-left: 34px;
+				height: 55px;
+				line-height: 55px;
+				pointer-events:none;
+			}
+			.circle {
+				width: 12px;
+				height: 12px;
+				margin-top: 21.5px;
+				margin-left: 20px;
+				margin-right: 4px;
+				float: left;
+			}
+			.x1 {background-image: url(main1.png);background-size: 100% 100%;}
+			#left a:hover .x1 {background-image: url(main2.png);}
+			.x2 {background-image: url(create1.png);background-size: 100% 100%;}
+			#left a:hover .x2 {background-image: url(create2.png);}
+			.x3 {background-image: url(business1.png);background-size: 100% 100%;}
+			#left a:hover .x3 {background-image: url(business2.png);}
+			.x4 {background-image: url(chat1.png);background-size: 100% 100%;}
+			#left a:hover .x4 {background-image: url(chat2.png);}
+			.x5 {background-image: url(setting1.png);background-size: 100% 100%;}
+			#left a:hover .x5 {background-image: url(setting2.png);}
+			.ma {
+				position: absolute;
+				left: 10px;
+				top: 10px;
+				width: 1052px;
+				height: 676px;
+				overflow: hidden;
+				font-family: "Pingfang";
+				background: #F2F4F9;
+				border-radius: 8px;
+				box-shadow: 0px 0px 10px rgba(0,0,0,0.6);
+			}
+			.logo {
+				font-size: 28px;
+				position: absolute;
+				top: 22px;
+				left: 26px;
+			}
+			.logo span {
+				color: #2F5DFE;
+			}
+			.main {
+				width: 770px;
+				height: 570px;
+				position: absolute;
+				top: 30px;
+				left: 260px;
+			}
+			.nav {
+				margin: 0;
+				width: 220px;
+				height: 40px;
+				font-size: 16px;
+				line-height: 40px;
+			}
+			#already {
+				float: left;
+				width: 90px;
+				text-align: center;
+				transform: scale(1.20);
+				-ms-transform:scale(1.20);     /* IE 9 */
+				-moz-transform:scale(1.20);     /* Firefox */
+				-webkit-transform:scale(1.20); /* Safari 和 Chrome */
+				-o-transform:scale(1.20);
+				transition: all .6s;
+				-webkit-transition: all .6s;
+				cursor: pointer;
+			}
+			#wait {
+				float: right;
+				width: 90px;
+				text-align: center;
+				transition: all .6s;
+				-webkit-transition: all .6s;
+				cursor: pointer;
+			}
+			#line {
+				width: 100px;
+				left: -5px;
+				position: absolute;
+				top: 36px;
+				height: 2px;
+				background-color: #2F5DFE;
+				transition: all .6s;
+				-webkit-transition: all .6s;
+			}
+			.container {
+				margin-top: 30px;
+				width: 770px;
+			}
+			.one {
+				width: 230px;
+				height: 148px;
+				border-radius: 6px;
+				background-color: rgb(254,254,254);
+				
+				float: left;
+				margin-right: 24px;
+				box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.1);
+				border: 0.5px solid rgba(230,230,230,0.5);
+				margin-bottom: 24px;
+				position: relative;
+				transition: all .6s;
+				-webkit-transition: all .6s;
+				cursor: pointer;
+			}
+			.one:hover {
+				box-shadow: 0px 2px 12px rgba(0,0,0,0.3);
+				transform: scale(1.005);
+				-ms-transform:scale(1.005);  
+				-moz-transform:scale(1.005);   
+				-webkit-transform:scale(1.005);
+				-o-transform:scale(1.005); 
+			}
+			.left {
+				position: absolute;
+				left: 16px;
+				top: 34px;
+				width: 8px;
+				height: 65px;
+				border-radius: 5px;
+			}
+			.in {
+				position: absolute;
+				left: 46px;
+				top: 14px;
+				width: 180px;
+				cursor: pointer;
+			}
+			/*"brand">
+			"type">总
+			"divide"
+			"long">1
+			"price">*/
+			.brand {
+				font-size: 19px;
+			}
+			.type {
+				font-size: 14px;
+				color: rgb(131,131,131);
+			}
+			.divide {
+				height: 2.5px;
+				border-radius: 2px;
+				width: 36px;
+				background: rgb(131,131,131);
+				margin: 0;
+				margin-top: 8px;
+				margin-bottom: 8px;
+			}
+			.long {
+				font-size: 12px;
+				color: rgb(131,131,131);
+			}
+			._1 {background-color: #FCEAEA;}
+			._2 {background-color: #C0CEFF;}
+			._3 {background-color: #FED0DE;}
+			._4 {background-color: #C4E9D3;}
+			._5 {background-color: #F0F4FF;}
+			._6 {background-color: #BDCCD4;}
+			.price {
+				margin-top: 8px;
+				font-family: "Pingfang";
+				font-size: 13px;
+				color: rgb(131,131,131);
+			}
+			.close div {
+				padding: 10px;
+				border-radius: 16px;
+				background: #FFFFFF;
+				box-shadow: 0px 0px 8px rgba(0,0,0,.20);
+				float: left;
+				margin-top: 12px;
+				margin-right: 10px;
+				margin-left: 10px;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				cursor: pointer;
+			}
+			.close {
+				position: absolute;
+				top: 2px;
+				right: 10px;
+			}
+			.hi {
+				width: 180px;
+				position:  absolute;
+				height: 32px;
+				background: #7D9AFC;
+				line-height: 32px;
+				border-radius: 4px;
+				top: 14px;
+				right: 240px;
+				font-size: 12px;
+				color: white;
+				font-family: "xi";
+				pointer-events: none;
+			}
+			.shu {
+				position:  absolute;
+				height: 20px;
+				width: 2px;
+				background: #DDDFE4;
+				top: 20px;
+				right: 197px;
+			}
+			.logo {
+				font-size: 28px;
+				position: absolute;
+				top: 10px;
+				left: 26px;
+			}
+			.logo2 {
+				font-size: 12px;
+				position: absolute;
+				top: 48px;
+				left: 26px;
+			}
+		</style>
+		<script src="jquery-3.3.1.min.js"></script>
+	</head>
+	<body>
+		<div class="ma">
+			<div class="hi"><img src="peo9.png" height="20px" style="float: left;margin-top: 6px;margin-left: 14px;margin-right: 10px;"/>Hi, welcome to kiook.</div>
+			<div class="shu"></div>
+			<div class="close"><div><img src="min.png" width="12px"/></div><div><img src="mid.png" width="12px"/></div><div><img src="close.png" width="12px"/></div></div>
+			<div id="left">
+				<div class="logo">
+					<span>k</span>iook
+				</div>
+				<div class="logo2">一款智能电竞赛程软件</div>
+				<a href="mainpage.html">
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x1" ></div>
+						&nbsp;&nbsp;&nbsp;首页
+					</div>
+				</a>
+				<a href="ccreate.html" >
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x2" ></div>
+						&nbsp;&nbsp;赛程创建
+					</div>
+				</a>
+				<a href="#" class="ch">
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x3"  style="background-image: url(business2.png);"></div>
+						&nbsp;&nbsp;招商页面
+					</div>
+				</a>
+				<a href="chat.html">
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x4"></div>
+						&nbsp;&nbsp;私信
+					</div>
+				</a>
+				<a href="#">
+					<div class="left_show"></div>
+					<div class="choose">
+						<div class="circle x5"></div>
+						&nbsp;&nbsp;设置
+					</div>
+				</a>
+			</div>
+			<div class="main">
+				<div class="nav">
+					<div id="already">已安排商家</div>
+					<div id="wait">待安排商家</div>
+					<div id="line"></div>
+				</div>
+				<div class="container">
+					<div class="one">
+						<div class="left _1"></div>
+						<div class="in">
+							<div class="brand">梅赛德斯奔驰</div>
+							<div class="type">总决赛</div>
+							<div class="divide"></div>
+							<div class="long">20s 广告</div>
+							<div class="price">￥8,700,000 出价</div>
+						</div>
+					</div>
+					<div class="one">
+						<div class="left _2"></div>
+						<div class="in">
+							<div class="brand">英特尔酷睿</div>
+							<div class="type">总决赛</div>
+							<div class="divide"></div>
+							<div class="long">15s 广告</div>
+							<div class="price">￥6,400,000 出价</div>
+						</div>
+					</div>
+					<div class="one">
+						<div class="left _3"></div>
+						<div class="in">
+							<div class="brand">莫斯利安酸奶</div>
+							<div class="type">总决赛</div>
+							<div class="divide"></div>
+							<div class="long">5s 广告</div>
+							<div class="price">￥700,000 出价</div>
+						</div>
+					</div>
+					<div class="one">
+						<div class="left _4"></div>
+						<div class="in">
+							<div class="brand">浦发信用卡</div>
+							<div class="type">半决赛</div>
+							<div class="divide"></div>
+							<div class="long">15s 广告</div>
+							<div class="price">￥7,900,000 出价</div>
+						</div>
+					</div>
+					<div class="one">
+						<div class="left _5"></div>
+						<div class="in">
+							<div class="brand">傲风电竞椅</div>
+							<div class="type">半决赛</div>
+							<div class="divide"></div>
+							<div class="long">5s 广告</div>
+							<div class="price">￥670,000 出价</div>
+						</div>
+					</div>
+					<div class="one">
+						<div class="left _6"></div>
+						<div class="in">
+							<div class="brand">耐克系列</div>
+							<div class="type">小组赛</div>
+							<div class="divide"></div>
+							<div class="long">15s 广告</div>
+							<div class="price">￥4,300,000 出价</div>
+						</div>
+					</div>
+					<div class="one">
+						<div class="left _3"></div>
+						<div class="in">
+							<div class="brand">肯德基</div>
+							<div class="type">小组赛</div>
+							<div class="divide"></div>
+							<div class="long">15s 广告</div>
+							<div class="price">￥5,800,000 出价</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			window.onload=function() {
+				$("#wait").hover(function(){
+				    $("#wait").css("transform","scale(1.20)");
+					$("#line").css("transform","translateX(130px)");
+					$("#already").css("transform","scale(1)");
+				},function(){
+				    $("#wait").css("transform","scale(1)");
+					$("#line").css("transform","translateX(0px)");
+					$("#already").css("transform","scale(1.20)");
+				});
+			}
+		</script>
+	</body>
+</html>
